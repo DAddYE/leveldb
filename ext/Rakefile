@@ -1,0 +1,11 @@
+task :default do
+  leveldb_dir = File.expand_path('../leveldb', __FILE__)
+
+  unless File.directory?(leveldb_dir)
+    STDERR.puts "ext/leveldb missing, please checkout its submodule..."
+    exit 1
+  end
+
+  # Make sure leveldb is built...
+  sh "cd #{leveldb_dir} && make"
+end

@@ -1,0 +1,3 @@
+[submodule "ext/leveldb"]
+	path = ext/leveldb
+	url = https://code.google.com/p/leveldb/
