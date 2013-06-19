@@ -52,7 +52,74 @@ $ rake console
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>TODO: Write usage instructions here</p>
+<p>Here a basic usage, for more advanced please see the doc.</p>
+
+<p>Right now is very <strong>low</strong> level, I'm planning to add an higher layer api.</p>
+
+<h3>
+<a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Prepare</h3>
+
+<p>If you plan to hack in a console ...</p>
+
+<p>Remember that <code>err</code> is important, we are going to use this var in all our calls</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'leveldb'</span>
+
+<span class="kp">include</span> <span class="no">Leveldb</span>
+
+<span class="n">err</span> <span class="o">=</span> <span class="n">err_create</span>
+</pre></div>
+
+<h3>
+<a name="open" class="anchor" href="#open"><span class="octicon octicon-link"></span></a>Open</h3>
+
+<div class="highlight"><pre><span class="n">options</span> <span class="o">=</span> <span class="n">options_create</span>
+<span class="n">options</span><span class="o">.</span><span class="n">set_create_if_missing</span> <span class="mi">1</span>
+<span class="n">db</span> <span class="o">=</span> <span class="nb">open</span> <span class="n">options</span><span class="p">,</span> <span class="s1">'./tmp/testdb'</span><span class="p">,</span> <span class="n">err</span>
+
+<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+</pre></div>
+
+<h3>
+<a name="write" class="anchor" href="#write"><span class="octicon octicon-link"></span></a>Write</h3>
+
+<div class="highlight"><pre><span class="n">write_opts</span> <span class="o">=</span> <span class="n">writeoptions_create</span>
+<span class="n">put</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">write_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+</pre></div>
+
+<h3>
+<a name="read" class="anchor" href="#read"><span class="octicon octicon-link"></span></a>Read</h3>
+
+<div class="highlight"><pre><span class="n">read_opts</span> <span class="o">=</span> <span class="n">readoptions_create</span>
+<span class="n">read</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">read_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">read_len</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+<span class="nb">puts</span> <span class="s2">"Key is: </span><span class="si">#{</span><span class="n">read</span><span class="si">}</span><span class="s2">"</span>
+</pre></div>
+
+<h3>
+<a name="delete" class="anchor" href="#delete"><span class="octicon octicon-link"></span></a>Delete</h3>
+
+<div class="highlight"><pre><span class="n">delete</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">write_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+</pre></div>
+
+<h3>
+<a name="close-connection" class="anchor" href="#close-connection"><span class="octicon octicon-link"></span></a>Close (connection)</h3>
+
+<div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">close</span>
+</pre></div>
+
+<h3>
+<a name="destroy-database" class="anchor" href="#destroy-database"><span class="octicon octicon-link"></span></a>Destroy (database)</h3>
+
+<div class="highlight"><pre><span class="n">destroy_db</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">'./tmp/testdb'</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+
+<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+</pre></div>
 
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
