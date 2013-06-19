@@ -98,7 +98,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span>, <span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span>, <span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span>, <span class='object_link'><a href="Leveldb/Filelock.html" title="Leveldb::Filelock (class)">Filelock</a></span>, <span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span>, <span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span>, <span class='object_link'><a href="Leveldb/Logger.html" title="Leveldb::Logger (class)">Logger</a></span>, <span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span>, <span class='object_link'><a href="Leveldb/Randomfile.html" title="Leveldb::Randomfile (class)">Randomfile</a></span>, <span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span>, <span class='object_link'><a href="Leveldb/Seqfile.html" title="Leveldb::Seqfile (class)">Seqfile</a></span>, <span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span>, <span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span>, <span class='object_link'><a href="Leveldb/Writablefile.html" title="Leveldb::Writablefile (class)">Writablefile</a></span>, <span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span>, <span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span>, <span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span>, <span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span>, <span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span>, <span class='object_link'><a href="Leveldb/Err.html" title="Leveldb::Err (class)">Err</a></span>, <span class='object_link'><a href="Leveldb/Filelock.html" title="Leveldb::Filelock (class)">Filelock</a></span>, <span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span>, <span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span>, <span class='object_link'><a href="Leveldb/Logger.html" title="Leveldb::Logger (class)">Logger</a></span>, <span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span>, <span class='object_link'><a href="Leveldb/Randomfile.html" title="Leveldb::Randomfile (class)">Randomfile</a></span>, <span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span>, <span class='object_link'><a href="Leveldb/Seqfile.html" title="Leveldb::Seqfile (class)">Seqfile</a></span>, <span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span>, <span class='object_link'><a href="Leveldb/Writablefile.html" title="Leveldb::Writablefile (class)">Writablefile</a></span>, <span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span>, <span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span>
     
   
 </p>
@@ -822,7 +822,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#open-class_method" title="open (class method)">+ (T) <strong>open</strong>(options, name, errptr) </a>
+      <a href="#open-class_method" title="open (class method)">+ (DB) <strong>open</strong>(options, name, errptr) </a>
     
 
     
@@ -1213,7 +1213,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#put-class_method" title="put (class method)">+ (nil) <strong>put</strong>(db, options, key, keylen, val, vallen, errptr) </a>
+      <a href="#put-class_method" title="put (class method)">+ (nil) <strong>put</strong>(db, wo, key, value, err) </a>
     
 
     
@@ -1626,6 +1626,103 @@
       
     </ul>
   
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#__put-instance_method" title="#__put (instance method)">- (Object) <strong>__put</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#err_create-instance_method" title="#err_create (instance method)">- (Object) <strong>err_create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put-instance_method" title="#put (instance method)">- (Object) <strong>put</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_len-instance_method" title="#read_len (instance method)">- (Object) <strong>read_len</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -1660,7 +1757,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -1754,12 +1851,12 @@
       <pre class="lines">
 
 
-367</pre>
+417</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 367</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 417</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:approximate_sizes</span><span class='comma'>,</span> <span class='symbol'>:leveldb_approximate_sizes</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:approximate_sizes</span><span class='comma'>,</span> <span class='symbol'>:leveldb_approximate_sizes</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -1818,12 +1915,12 @@
       <pre class="lines">
 
 
-596</pre>
+646</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 596</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 646</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:cache_create_lru</span><span class='comma'>,</span> <span class='symbol'>:leveldb_cache_create_lru</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Cache</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:cache_create_lru</span><span class='comma'>,</span> <span class='symbol'>:leveldb_cache_create_lru</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Cache</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -1882,10 +1979,10 @@
       <pre class="lines">
 
 
-878</pre>
+928</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 878</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 928</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:cache_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_cache_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Cache</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -1918,7 +2015,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -1946,12 +2043,12 @@
       <pre class="lines">
 
 
-634</pre>
+684</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 634</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 684</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:close</span><span class='comma'>,</span> <span class='symbol'>:leveldb_close</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:close</span><span class='comma'>,</span> <span class='symbol'>:leveldb_close</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -1983,7 +2080,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -2055,12 +2152,12 @@
       <pre class="lines">
 
 
-818</pre>
+868</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 818</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 868</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:compact_range</span><span class='comma'>,</span> <span class='symbol'>:leveldb_compact_range</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:compact_range</span><span class='comma'>,</span> <span class='symbol'>:leveldb_compact_range</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -2152,12 +2249,12 @@
       <pre class="lines">
 
 
-753</pre>
+803</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 753</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 803</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:comparator_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_comparator_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Comparator</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:comparator_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_comparator_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Comparator</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2216,10 +2313,10 @@
       <pre class="lines">
 
 
-541</pre>
+591</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 541</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 591</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:comparator_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_comparator_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Comparator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -2265,12 +2362,12 @@
       <pre class="lines">
 
 
-604</pre>
+654</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 604</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 654</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_default_env</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_default_env</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Env</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_default_env</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_default_env</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Env</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2302,7 +2399,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -2341,12 +2438,12 @@
       <pre class="lines">
 
 
-341</pre>
+391</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 341</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 391</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_iterator</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_iterator</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Iterator</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_iterator</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_iterator</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Iterator</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2377,7 +2474,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -2405,12 +2502,12 @@
       <pre class="lines">
 
 
-887</pre>
+937</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 887</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 937</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Snapshot</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2441,7 +2538,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -2513,12 +2610,12 @@
       <pre class="lines">
 
 
-804</pre>
+854</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 804</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 854</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:delete</span><span class='comma'>,</span> <span class='symbol'>:leveldb_delete</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:delete</span><span class='comma'>,</span> <span class='symbol'>:leveldb_delete</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -2599,10 +2696,10 @@
       <pre class="lines">
 
 
-378</pre>
+428</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 378</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 428</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:destroy_db</span><span class='comma'>,</span> <span class='symbol'>:leveldb_destroy_db</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -2663,10 +2760,10 @@
       <pre class="lines">
 
 
-791</pre>
+841</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 791</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 841</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:env_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_env_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Env</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -2771,12 +2868,12 @@
       <pre class="lines">
 
 
-937</pre>
+987</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 937</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 987</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2835,12 +2932,12 @@
       <pre class="lines">
 
 
-762</pre>
+812</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 762</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 812</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -2899,10 +2996,10 @@
       <pre class="lines">
 
 
-550</pre>
+600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 550</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 600</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Filterpolicy</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -2967,10 +3064,10 @@
       <pre class="lines">
 
 
-617</pre>
+667</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 617</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 667</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:free</span><span class='comma'>,</span> <span class='symbol'>:leveldb_free</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3004,7 +3101,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -3087,12 +3184,12 @@
       <pre class="lines">
 
 
-649</pre>
+699</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 649</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 699</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='symbol'>:leveldb_get</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='symbol'>:leveldb_get</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
     </td>
   </tr>
 </table>
@@ -3151,10 +3248,10 @@
       <pre class="lines">
 
 
-387</pre>
+437</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 387</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 437</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3226,10 +3323,10 @@
       <pre class="lines">
 
 
-897</pre>
+947</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 897</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 947</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_get_error</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_get_error</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3301,10 +3398,10 @@
       <pre class="lines">
 
 
-690</pre>
+740</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 690</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 740</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_key</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_key</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
     </td>
@@ -3365,10 +3462,10 @@
       <pre class="lines">
 
 
-827</pre>
+877</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 827</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 877</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_next</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_next</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3429,10 +3526,10 @@
       <pre class="lines">
 
 
-416</pre>
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 416</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 466</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_prev</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_prev</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3515,10 +3612,10 @@
       <pre class="lines">
 
 
-407</pre>
+457</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 407</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 457</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3579,10 +3676,10 @@
       <pre class="lines">
 
 
-396</pre>
+446</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 396</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 446</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek_to_first</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek_to_first</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3643,10 +3740,10 @@
       <pre class="lines">
 
 
-680</pre>
+730</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 680</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 730</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek_to_last</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek_to_last</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -3707,10 +3804,10 @@
       <pre class="lines">
 
 
-924</pre>
+974</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 924</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 974</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_valid</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_valid</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:uchar</span></pre>
     </td>
@@ -3782,10 +3879,10 @@
       <pre class="lines">
 
 
-426</pre>
+476</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 476</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_value</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_value</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
     </td>
@@ -3831,10 +3928,10 @@
       <pre class="lines">
 
 
-954</pre>
+1004</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 954</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 1004</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:major_version</span><span class='comma'>,</span> <span class='symbol'>:leveldb_major_version</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:int</span></pre>
     </td>
@@ -3880,10 +3977,10 @@
       <pre class="lines">
 
 
-625</pre>
+675</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 625</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 675</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:minor_version</span><span class='comma'>,</span> <span class='symbol'>:leveldb_minor_version</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:int</span></pre>
     </td>
@@ -3894,7 +3991,7 @@
       <div class="method_details ">
   <h3 class="signature " id="open-class_method">
   
-    + (<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>) <strong>open</strong>(options, name, errptr) 
+    + (<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>) <strong>open</strong>(options, name, errptr) 
   
 
   
@@ -3956,7 +4053,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -3970,12 +4067,12 @@
       <pre class="lines">
 
 
-303</pre>
+347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 303</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 347</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:open</span><span class='comma'>,</span> <span class='symbol'>:leveldb_open</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>T</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:open</span><span class='comma'>,</span> <span class='symbol'>:leveldb_open</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>DB</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -4019,12 +4116,12 @@
       <pre class="lines">
 
 
-462</pre>
+512</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 462</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 512</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Options</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Options</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -4083,10 +4180,10 @@
       <pre class="lines">
 
 
-946</pre>
+996</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 946</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 996</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4158,10 +4255,10 @@
       <pre class="lines">
 
 
-860</pre>
+910</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 860</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 910</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_block_restart_interval</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_block_restart_interval</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4233,10 +4330,10 @@
       <pre class="lines">
 
 
-522</pre>
+572</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 522</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 572</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_block_size</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_block_size</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4308,10 +4405,10 @@
       <pre class="lines">
 
 
-741</pre>
+791</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 741</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 791</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_cache</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_cache</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Cache</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4383,10 +4480,10 @@
       <pre class="lines">
 
 
-472</pre>
+522</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 472</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 522</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_comparator</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_comparator</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Comparator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4458,10 +4555,10 @@
       <pre class="lines">
 
 
-532</pre>
+582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 532</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 582</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_compression</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_compression</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4533,10 +4630,10 @@
       <pre class="lines">
 
 
-482</pre>
+532</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 482</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 532</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_create_if_missing</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_create_if_missing</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4608,10 +4705,10 @@
       <pre class="lines">
 
 
-731</pre>
+781</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 731</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 781</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_env</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_env</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Env</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4683,10 +4780,10 @@
       <pre class="lines">
 
 
-850</pre>
+900</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 850</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 900</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_error_if_exists</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_error_if_exists</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4758,10 +4855,10 @@
       <pre class="lines">
 
 
-721</pre>
+771</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 721</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 771</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_filter_policy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_filter_policy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4833,10 +4930,10 @@
       <pre class="lines">
 
 
-502</pre>
+552</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 502</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 552</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_info_log</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_info_log</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Logger</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4908,10 +5005,10 @@
       <pre class="lines">
 
 
-512</pre>
+562</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 512</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 562</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_max_open_files</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_max_open_files</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -4983,10 +5080,10 @@
       <pre class="lines">
 
 
-492</pre>
+542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 492</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 542</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_paranoid_checks</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_paranoid_checks</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5058,10 +5155,10 @@
       <pre class="lines">
 
 
-907</pre>
+957</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 907</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 957</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_write_buffer_size</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_write_buffer_size</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5095,7 +5192,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -5134,12 +5231,12 @@
       <pre class="lines">
 
 
-660</pre>
+710</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 660</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 710</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:property_value</span><span class='comma'>,</span> <span class='symbol'>:leveldb_property_value</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:property_value</span><span class='comma'>,</span> <span class='symbol'>:leveldb_property_value</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
     </td>
   </tr>
 </table>
@@ -5148,7 +5245,7 @@
       <div class="method_details ">
   <h3 class="signature " id="put-class_method">
   
-    + (<tt>nil</tt>) <strong>put</strong>(db, options, key, keylen, val, vallen, errptr) 
+    + (<tt>nil</tt>) <strong>put</strong>(db, wo, key, value, err) 
   
 
   
@@ -5170,7 +5267,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -5264,12 +5361,12 @@
       <pre class="lines">
 
 
-318</pre>
+362</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 362</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:put</span><span class='comma'>,</span> <span class='symbol'>:leveldb_put</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:put</span><span class='comma'>,</span> <span class='symbol'>:leveldb_put</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -5313,12 +5410,12 @@
       <pre class="lines">
 
 
-558</pre>
+608</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 558</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 608</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Readoptions</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -5377,10 +5474,10 @@
       <pre class="lines">
 
 
-869</pre>
+919</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 869</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 919</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5452,10 +5549,10 @@
       <pre class="lines">
 
 
-772</pre>
+822</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 772</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 822</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_fill_cache</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_fill_cache</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5527,10 +5624,10 @@
       <pre class="lines">
 
 
-578</pre>
+628</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 578</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 628</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5602,10 +5699,10 @@
       <pre class="lines">
 
 
-568</pre>
+618</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 568</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 618</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_verify_checksums</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_verify_checksums</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5638,7 +5735,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -5677,12 +5774,12 @@
       <pre class="lines">
 
 
-351</pre>
+401</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 351</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 401</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:release_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_release_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:release_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_release_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -5763,10 +5860,10 @@
       <pre class="lines">
 
 
-671</pre>
+721</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 671</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 721</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:repair_db</span><span class='comma'>,</span> <span class='symbol'>:leveldb_repair_db</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5799,7 +5896,7 @@
         <span class='name'>db</span>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/DB.html" title="Leveldb::DB (class)">DB</a></span></tt>)</span>
       
       
       
@@ -5860,12 +5957,12 @@
       <pre class="lines">
 
 
-330</pre>
+380</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 330</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 380</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:write</span><span class='comma'>,</span> <span class='symbol'>:leveldb_write</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:write</span><span class='comma'>,</span> <span class='symbol'>:leveldb_write</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>DB</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
   </tr>
 </table>
@@ -5924,10 +6021,10 @@
       <pre class="lines">
 
 
-443</pre>
+493</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 443</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 493</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_clear</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_clear</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -5973,12 +6070,12 @@
       <pre class="lines">
 
 
-434</pre>
+484</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 434</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 484</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writebatch</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writebatch</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -6059,10 +6156,10 @@
       <pre class="lines">
 
 
-454</pre>
+504</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 504</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_delete</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_delete</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -6123,10 +6220,10 @@
       <pre class="lines">
 
 
-699</pre>
+749</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 699</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 749</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -6220,10 +6317,10 @@
       <pre class="lines">
 
 
-711</pre>
+761</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 711</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 761</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_iterate</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_iterate</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -6328,10 +6425,10 @@
       <pre class="lines">
 
 
-840</pre>
+890</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 840</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 890</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_put</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_put</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -6377,12 +6474,12 @@
       <pre class="lines">
 
 
-915</pre>
+965</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 915</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 965</span>
 
-<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writeoptions</span></pre>
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='period'>.</span><span class='id identifier rubyid_auto_ptr'>auto_ptr</span></pre>
     </td>
   </tr>
 </table>
@@ -6441,10 +6538,10 @@
       <pre class="lines">
 
 
-587</pre>
+637</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 587</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 637</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writeoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
     </td>
@@ -6516,12 +6613,130 @@
       <pre class="lines">
 
 
-782</pre>
+832</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 782</span>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 832</span>
 
 <span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_set_sync</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_set_sync</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="__put-instance_method">
+  
+    - (<tt>Object</tt>) <strong>__put</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+364</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 364</span>
+
+<span class='kw'>alias</span> <span class='id identifier rubyid___put'>__put</span> <span class='id identifier rubyid_put'>put</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="err_create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>err_create</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_err_create'>err_create</span>
+  <span class='const'>Err</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="put-instance_method">
+  
+    - (<tt>Object</tt>) <strong>put</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+368</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 368</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='const'>Leveldb</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_len-instance_method">
+  
+    - (<tt>Object</tt>) <strong>read_len</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_len'>read_len</span>
+  <span class='const'>FFI</span><span class='op'>::</span><span class='const'>MemoryPointer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:size_t</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -6532,7 +6747,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Jun 18 20:26:08 2013 by
+  Generated on Wed Jun 19 00:33:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-2.0.0).
 </div>

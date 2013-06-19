@@ -65,7 +65,16 @@
 
 <p>Experimental FFI bindings for leveldb</p>
 
+<h2>Documentation</h2>
+
+<ul>
+<li><a href="http://daddye.it/leveldb">Website</a></li>
+<li><a href="http://daddye.it/leveldb/doc">Api Doc</a></li>
+</ul>
+
 <h2>Installation</h2>
+
+<h3>Development</h3>
 
 <pre class="code ruby"><code class="ruby">$ brew install snappy
 $ git clone git://github.com/DAddYE/leveldb.git
@@ -74,9 +83,76 @@ $ rake compile
 $ rake console
 </code></pre>
 
+<h3>Standard</h3>
+
+<pre class="code ruby"><code class="ruby">$ brew install snappy
+$ gem install leveldb
+$ irb -r leveldb
+</code></pre>
+
 <h2>Usage</h2>
 
-<p>TODO: Write usage instructions here</p>
+<p>Here a basic usage, for more advanced please see the doc.</p>
+
+<p>Right now is very <strong>low</strong> level, I&#39;m planning to add an higher layer api soon.</p>
+
+<h3>Prepare</h3>
+
+<p>If you plan to hack in a console ...</p>
+
+<p>Remember that <code>err</code> is important, we are going to use this var in all our calls</p>
+
+<pre class="code rb"><code class="rb">require &#39;leveldb&#39;
+
+include Leveldb
+
+err = err_create
+</code></pre>
+
+<h3>Open</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_options_create'>options_create</span>
+<span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_set_create_if_missing'>set_create_if_missing</span> <span class='int'>1</span>
+<span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_open'>open</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>./tmp/testdb</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span>
+
+<span class='id identifier rubyid_abort'>abort</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_null?'>null?</span>
+</code></pre>
+
+<h3>Write</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_write_opts'>write_opts</span> <span class='op'>=</span> <span class='id identifier rubyid_writeoptions_create'>writeoptions_create</span>
+<span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='id identifier rubyid_write_opts'>write_opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>key</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_abort'>abort</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_null?'>null?</span>
+</code></pre>
+
+<h3>Read</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_read_opts'>read_opts</span> <span class='op'>=</span> <span class='id identifier rubyid_readoptions_create'>readoptions_create</span>
+<span class='id identifier rubyid_read'>read</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='id identifier rubyid_read_opts'>read_opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>key</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='id identifier rubyid_read_len'>read_len</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_abort'>abort</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_null?'>null?</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Key is: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_read'>read</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<h3>Delete</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_db'>db</span><span class='comma'>,</span> <span class='id identifier rubyid_write_opts'>write_opts</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>key</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_abort'>abort</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_null?'>null?</span>
+</code></pre>
+
+<h3>Close (connection)</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+</code></pre>
+
+<h3>Destroy (database)</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_destroy_db'>destroy_db</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>./tmp/testdb</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_err'>err</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_abort'>abort</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='kw'>unless</span> <span class='id identifier rubyid_err'>err</span><span class='period'>.</span><span class='id identifier rubyid_null?'>null?</span>
+</code></pre>
 
 <h2>Contributing</h2>
 
@@ -90,7 +166,7 @@ $ rake console
 </div></div>
 
     <div id="footer">
-  Generated on Tue Jun 18 20:26:07 2013 by
+  Generated on Wed Jun 19 00:33:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-2.0.0).
 </div>
