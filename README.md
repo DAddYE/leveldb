@@ -2,6 +2,11 @@
 
 Experimental FFI bindings for leveldb
 
+## Documentation
+
+* Website [http://daddye.it/leveldb]
+* Api Doc [http://daddye.it/leveldb/doc]
+
 ## Installation
 
     $ brew install snappy
