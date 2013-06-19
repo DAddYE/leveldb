@@ -1,0 +1,6541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Leveldb
+  
+    &mdash; Documentation by YARD 0.8.6.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (L)</a> &raquo;
+    
+    
+    <span class="title">Leveldb</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Leveldb
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1">FFI::Library</dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/leveldb.rb<span class="defines">,<br />
+  lib/leveldb/version.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Leveldb/CacheWrappers.html" title="Leveldb::CacheWrappers (module)">CacheWrappers</a></span>, <span class='object_link'><a href="Leveldb/ComparatorWrappers.html" title="Leveldb::ComparatorWrappers (module)">ComparatorWrappers</a></span>, <span class='object_link'><a href="Leveldb/EnvWrappers.html" title="Leveldb::EnvWrappers (module)">EnvWrappers</a></span>, <span class='object_link'><a href="Leveldb/FilterpolicyWrappers.html" title="Leveldb::FilterpolicyWrappers (module)">FilterpolicyWrappers</a></span>, <span class='object_link'><a href="Leveldb/OptionsWrappers.html" title="Leveldb::OptionsWrappers (module)">OptionsWrappers</a></span>, <span class='object_link'><a href="Leveldb/ReadoptionsWrappers.html" title="Leveldb::ReadoptionsWrappers (module)">ReadoptionsWrappers</a></span>, <span class='object_link'><a href="Leveldb/WritebatchWrappers.html" title="Leveldb::WritebatchWrappers (module)">WritebatchWrappers</a></span>, <span class='object_link'><a href="Leveldb/WriteoptionsWrappers.html" title="Leveldb::WriteoptionsWrappers (module)">WriteoptionsWrappers</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span>, <span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span>, <span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span>, <span class='object_link'><a href="Leveldb/Filelock.html" title="Leveldb::Filelock (class)">Filelock</a></span>, <span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span>, <span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span>, <span class='object_link'><a href="Leveldb/Logger.html" title="Leveldb::Logger (class)">Logger</a></span>, <span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span>, <span class='object_link'><a href="Leveldb/Randomfile.html" title="Leveldb::Randomfile (class)">Randomfile</a></span>, <span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span>, <span class='object_link'><a href="Leveldb/Seqfile.html" title="Leveldb::Seqfile (class)">Seqfile</a></span>, <span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span>, <span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span>, <span class='object_link'><a href="Leveldb/Writablefile.html" title="Leveldb::Writablefile (class)">Writablefile</a></span>, <span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span>, <span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#approximate_sizes-class_method" title="approximate_sizes (class method)">+ (nil) <strong>approximate_sizes</strong>(db, num_ranges, range_start_key, range_start_key_len, range_limit_key, range_limit_key_len, sizes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns NULL if property name is unknown.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache_create_lru-class_method" title="cache_create_lru (class method)">+ (Cache) <strong>cache_create_lru</strong>(capacity) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Cache.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cache_destroy-class_method" title="cache_destroy (class method)">+ (nil) <strong>cache_destroy</strong>(cache) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Cache.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#close-class_method" title="close (class method)">+ (nil) <strong>close</strong>(db) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compact_range-class_method" title="compact_range (class method)">+ (nil) <strong>compact_range</strong>(db, start_key, start_key_len, limit_key, limit_key_len) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns NULL if property name is unknown.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comparator_create-class_method" title="comparator_create (class method)">+ (Comparator) <strong>comparator_create</strong>(state, destructor, compare, name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Comparator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#comparator_destroy-class_method" title="comparator_destroy (class method)">+ (nil) <strong>comparator_destroy</strong>(comparator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Comparator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_default_env-class_method" title="create_default_env (class method)">+ (Env) <strong>create_default_env</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Env.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_iterator-class_method" title="create_iterator (class method)">+ (Iterator) <strong>create_iterator</strong>(db, options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns NULL if not found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_snapshot-class_method" title="create_snapshot (class method)">+ (Snapshot) <strong>create_snapshot</strong>(db) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-class_method" title="delete (class method)">+ (nil) <strong>delete</strong>(db, options, key, keylen, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_db-class_method" title="destroy_db (class method)">+ (nil) <strong>destroy_db</strong>(options, name, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Management operations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#env_destroy-class_method" title="env_destroy (class method)">+ (nil) <strong>env_destroy</strong>(env) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Env.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filterpolicy_create-class_method" title="filterpolicy_create (class method)">+ (Filterpolicy) <strong>filterpolicy_create</strong>(state, destructor, create_filter, key_may_match, name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Filter policy.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filterpolicy_create_bloom-class_method" title="filterpolicy_create_bloom (class method)">+ (Filterpolicy) <strong>filterpolicy_create_bloom</strong>(bits_per_key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Filter policy.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filterpolicy_destroy-class_method" title="filterpolicy_destroy (class method)">+ (nil) <strong>filterpolicy_destroy</strong>(filterpolicy) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Filter policy.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#free-class_method" title="free (class method)">+ (nil) <strong>free</strong>(ptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Calls free(ptr).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get-class_method" title="get (class method)">+ (String) <strong>get</strong>(db, options, key, keylen, vallen, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns NULL if not found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_destroy-class_method" title="iter_destroy (class method)">+ (nil) <strong>iter_destroy</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Iterator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_get_error-class_method" title="iter_get_error (class method)">+ (nil) <strong>iter_get_error</strong>(iterator, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Iterator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_key-class_method" title="iter_key (class method)">+ (String) <strong>iter_key</strong>(iterator, klen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_next-class_method" title="iter_next (class method)">+ (nil) <strong>iter_next</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Iterator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_prev-class_method" title="iter_prev (class method)">+ (nil) <strong>iter_prev</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_seek-class_method" title="iter_seek (class method)">+ (nil) <strong>iter_seek</strong>(iterator, k, klen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_seek_to_first-class_method" title="iter_seek_to_first (class method)">+ (nil) <strong>iter_seek_to_first</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_seek_to_last-class_method" title="iter_seek_to_last (class method)">+ (nil) <strong>iter_seek_to_last</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Iterator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_valid-class_method" title="iter_valid (class method)">+ (Integer) <strong>iter_valid</strong>(iterator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#iter_value-class_method" title="iter_value (class method)">+ (String) <strong>iter_value</strong>(iterator, vlen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#major_version-class_method" title="major_version (class method)">+ (Integer) <strong>major_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the major version number for this release.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minor_version-class_method" title="minor_version (class method)">+ (Integer) <strong>minor_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Return the minor version number for this release.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#open-class_method" title="open (class method)">+ (T) <strong>open</strong>(options, name, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Writing Callbacks.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_create-class_method" title="options_create (class method)">+ (Options) <strong>options_create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_destroy-class_method" title="options_destroy (class method)">+ (nil) <strong>options_destroy</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_block_restart_interval-class_method" title="options_set_block_restart_interval (class method)">+ (nil) <strong>options_set_block_restart_interval</strong>(options, int) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_block_size-class_method" title="options_set_block_size (class method)">+ (nil) <strong>options_set_block_size</strong>(options, u_long) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_cache-class_method" title="options_set_cache (class method)">+ (nil) <strong>options_set_cache</strong>(options, cache) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_comparator-class_method" title="options_set_comparator (class method)">+ (nil) <strong>options_set_comparator</strong>(options, comparator) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_compression-class_method" title="options_set_compression (class method)">+ (nil) <strong>options_set_compression</strong>(options, int) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_create_if_missing-class_method" title="options_set_create_if_missing (class method)">+ (nil) <strong>options_set_create_if_missing</strong>(options, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_env-class_method" title="options_set_env (class method)">+ (nil) <strong>options_set_env</strong>(options, env) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_error_if_exists-class_method" title="options_set_error_if_exists (class method)">+ (nil) <strong>options_set_error_if_exists</strong>(options, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_filter_policy-class_method" title="options_set_filter_policy (class method)">+ (nil) <strong>options_set_filter_policy</strong>(options, filterpolicy) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_info_log-class_method" title="options_set_info_log (class method)">+ (nil) <strong>options_set_info_log</strong>(options, logger) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_max_open_files-class_method" title="options_set_max_open_files (class method)">+ (nil) <strong>options_set_max_open_files</strong>(options, int) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_paranoid_checks-class_method" title="options_set_paranoid_checks (class method)">+ (nil) <strong>options_set_paranoid_checks</strong>(options, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_set_write_buffer_size-class_method" title="options_set_write_buffer_size (class method)">+ (nil) <strong>options_set_write_buffer_size</strong>(options, u_long) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#property_value-class_method" title="property_value (class method)">+ (String) <strong>property_value</strong>(db, propname) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns NULL if property name is unknown.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put-class_method" title="put (class method)">+ (nil) <strong>put</strong>(db, options, key, keylen, val, vallen, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readoptions_create-class_method" title="readoptions_create (class method)">+ (Readoptions) <strong>readoptions_create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Read options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readoptions_destroy-class_method" title="readoptions_destroy (class method)">+ (nil) <strong>readoptions_destroy</strong>(readoptions) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Read options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readoptions_set_fill_cache-class_method" title="readoptions_set_fill_cache (class method)">+ (nil) <strong>readoptions_set_fill_cache</strong>(readoptions, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Read options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readoptions_set_snapshot-class_method" title="readoptions_set_snapshot (class method)">+ (nil) <strong>readoptions_set_snapshot</strong>(readoptions, snapshot) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#readoptions_set_verify_checksums-class_method" title="readoptions_set_verify_checksums (class method)">+ (nil) <strong>readoptions_set_verify_checksums</strong>(readoptions, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#release_snapshot-class_method" title="release_snapshot (class method)">+ (nil) <strong>release_snapshot</strong>(db, snapshot) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#repair_db-class_method" title="repair_db (class method)">+ (nil) <strong>repair_db</strong>(options, name, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Management operations.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write-class_method" title="write (class method)">+ (nil) <strong>write</strong>(db, options, batch, errptr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_clear-class_method" title="writebatch_clear (class method)">+ (nil) <strong>writebatch_clear</strong>(writebatch) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_create-class_method" title="writebatch_create (class method)">+ (Writebatch) <strong>writebatch_create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write batch.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_delete-class_method" title="writebatch_delete (class method)">+ (nil) <strong>writebatch_delete</strong>(writebatch, key, klen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_destroy-class_method" title="writebatch_destroy (class method)">+ (nil) <strong>writebatch_destroy</strong>(writebatch) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write batch.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_iterate-class_method" title="writebatch_iterate (class method)">+ (nil) <strong>writebatch_iterate</strong>(writebatch, state, put, deleted) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>(Not documented).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writebatch_put-class_method" title="writebatch_put (class method)">+ (nil) <strong>writebatch_put</strong>(writebatch, key, klen, val, vlen) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write batch.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writeoptions_create-class_method" title="writeoptions_create (class method)">+ (Writeoptions) <strong>writeoptions_create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writeoptions_destroy-class_method" title="writeoptions_destroy (class method)">+ (nil) <strong>writeoptions_destroy</strong>(writeoptions) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write options.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writeoptions_set_sync-class_method" title="writeoptions_set_sync (class method)">+ (nil) <strong>writeoptions_set_sync</strong>(writeoptions, u_char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Write options.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="approximate_sizes-class_method">
+  
+    + (<tt>nil</tt>) <strong>approximate_sizes</strong>(db, num_ranges, range_start_key, range_start_key_len, range_limit_key, range_limit_key_len, sizes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns NULL if property name is unknown.
+   Else returns a pointer to a malloc()-ed null-terminated value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>num_ranges</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>range_start_key</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>range_start_key_len</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Size)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>range_limit_key</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>range_limit_key_len</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Size)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sizes</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Uint64)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+367</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 367</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:approximate_sizes</span><span class='comma'>,</span> <span class='symbol'>:leveldb_approximate_sizes</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cache_create_lru-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span></tt>) <strong>cache_create_lru</strong>(capacity) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Cache</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>capacity</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+596</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 596</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:cache_create_lru</span><span class='comma'>,</span> <span class='symbol'>:leveldb_cache_create_lru</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Cache</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cache_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>cache_destroy</strong>(cache) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Cache</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>cache</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+878</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 878</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:cache_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_cache_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Cache</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="close-class_method">
+  
+    + (<tt>nil</tt>) <strong>close</strong>(db) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+634</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 634</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:close</span><span class='comma'>,</span> <span class='symbol'>:leveldb_close</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="compact_range-class_method">
+  
+    + (<tt>nil</tt>) <strong>compact_range</strong>(db, start_key, start_key_len, limit_key, limit_key_len) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns NULL if property name is unknown.
+   Else returns a pointer to a malloc()-ed null-terminated value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>start_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>start_key_len</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>limit_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>limit_key_len</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+818</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 818</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:compact_range</span><span class='comma'>,</span> <span class='symbol'>:leveldb_compact_range</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comparator_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span></tt>) <strong>comparator_create</strong>(state, destructor, compare, name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Comparator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>state</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Void)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>destructor</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>compare</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+753</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 753</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:comparator_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_comparator_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Comparator</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="comparator_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>comparator_destroy</strong>(comparator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Comparator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>comparator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 541</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:comparator_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_comparator_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Comparator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_default_env-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span></tt>) <strong>create_default_env</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Env</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+604</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 604</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_default_env</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_default_env</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Env</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_iterator-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>) <strong>create_iterator</strong>(db, options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns NULL if not found.  A malloc()ed array otherwise.
+   Stores the length of the array in *vallen.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+341</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 341</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_iterator</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_iterator</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Iterator</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_snapshot-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span></tt>) <strong>create_snapshot</strong>(db) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+887</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 887</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:create_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_create_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Snapshot</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-class_method">
+  
+    + (<tt>nil</tt>) <strong>delete</strong>(db, options, key, keylen, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keylen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+804</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 804</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:delete</span><span class='comma'>,</span> <span class='symbol'>:leveldb_delete</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_db-class_method">
+  
+    + (<tt>nil</tt>) <strong>destroy_db</strong>(options, name, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Management operations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+378</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 378</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:destroy_db</span><span class='comma'>,</span> <span class='symbol'>:leveldb_destroy_db</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="env_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>env_destroy</strong>(env) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Env</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>env</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+791</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 791</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:env_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_env_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Env</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filterpolicy_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>) <strong>filterpolicy_create</strong>(state, destructor, create_filter, key_may_match, name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Filter policy</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>state</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Void)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>destructor</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>create_filter</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key_may_match</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+937</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 937</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filterpolicy_create_bloom-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>) <strong>filterpolicy_create_bloom</strong>(bits_per_key) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Filter policy</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>bits_per_key</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+762</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 762</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_create_bloom</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filterpolicy_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>filterpolicy_destroy</strong>(filterpolicy) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Filter policy</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>filterpolicy</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+550</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 550</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:filterpolicy_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_filterpolicy_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Filterpolicy</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="free-class_method">
+  
+    + (<tt>nil</tt>) <strong>free</strong>(ptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Calls free(ptr).
+   REQUIRES: ptr was malloc()-ed and returned by one of the routines
+   in this file.  Note that in certain cases (typically on Windows), you
+   may need to call this routine instead of free(ptr) to dispose of
+   malloc()-ed memory returned by this library.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Void)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+617</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 617</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:free</span><span class='comma'>,</span> <span class='symbol'>:leveldb_free</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get-class_method">
+  
+    + (<tt>String</tt>) <strong>get</strong>(db, options, key, keylen, vallen, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns NULL if not found.  A malloc()ed array otherwise.
+   Stores the length of the array in *vallen.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keylen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vallen</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Size)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+649</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 649</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='symbol'>:leveldb_get</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_destroy</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Iterator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+387</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 387</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_get_error-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_get_error</strong>(iterator, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Iterator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+897</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 897</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_get_error</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_get_error</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_key-class_method">
+  
+    + (<tt>String</tt>) <strong>iter_key</strong>(iterator, klen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>klen</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Size)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+690</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 690</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_key</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_key</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_next-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_next</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Iterator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+827</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 827</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_next</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_next</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_prev-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_prev</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 416</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_prev</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_prev</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_seek-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_seek</strong>(iterator, k, klen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>k</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>klen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 407</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_seek_to_first-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_seek_to_first</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 396</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek_to_first</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek_to_first</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_seek_to_last-class_method">
+  
+    + (<tt>nil</tt>) <strong>iter_seek_to_last</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Iterator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+680</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 680</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_seek_to_last</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_seek_to_last</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_valid-class_method">
+  
+    + (<tt>Integer</tt>) <strong>iter_valid</strong>(iterator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+924</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 924</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_valid</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_valid</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:uchar</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="iter_value-class_method">
+  
+    + (<tt>String</tt>) <strong>iter_value</strong>(iterator, vlen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>iterator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Iterator.html" title="Leveldb::Iterator (class)">Iterator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vlen</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Size)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+426</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 426</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:iter_value</span><span class='comma'>,</span> <span class='symbol'>:leveldb_iter_value</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Iterator</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="major_version-class_method">
+  
+    + (<tt>Integer</tt>) <strong>major_version</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return the major version number for this release.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+954</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 954</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:major_version</span><span class='comma'>,</span> <span class='symbol'>:leveldb_major_version</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:int</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="minor_version-class_method">
+  
+    + (<tt>Integer</tt>) <strong>minor_version</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Return the minor version number for this release.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+625</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 625</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:minor_version</span><span class='comma'>,</span> <span class='symbol'>:leveldb_minor_version</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:int</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="open-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>) <strong>open</strong>(options, name, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Writing Callbacks</p>
+
+<p>Writing Functions</p>
+
+<p>DB operations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+303</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 303</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:open</span><span class='comma'>,</span> <span class='symbol'>:leveldb_open</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>T</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>) <strong>options_create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 462</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Options</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_destroy</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+946</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 946</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_block_restart_interval-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_block_restart_interval</strong>(options, int) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>int</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+860</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 860</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_block_restart_interval</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_block_restart_interval</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_block_size-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_block_size</strong>(options, u_long) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_long</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+522</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 522</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_block_size</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_block_size</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_cache-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_cache</strong>(options, cache) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cache</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Cache.html" title="Leveldb::Cache (class)">Cache</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+741</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 741</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_cache</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_cache</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Cache</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_comparator-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_comparator</strong>(options, comparator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>comparator</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Comparator.html" title="Leveldb::Comparator (class)">Comparator</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 472</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_comparator</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_comparator</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Comparator</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_compression-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_compression</strong>(options, int) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>int</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+532</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 532</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_compression</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_compression</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_create_if_missing-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_create_if_missing</strong>(options, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+482</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 482</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_create_if_missing</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_create_if_missing</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_env-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_env</strong>(options, env) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>env</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Env.html" title="Leveldb::Env (class)">Env</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+731</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 731</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_env</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_env</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Env</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_error_if_exists-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_error_if_exists</strong>(options, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+850</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 850</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_error_if_exists</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_error_if_exists</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_filter_policy-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_filter_policy</strong>(options, filterpolicy) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>filterpolicy</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Filterpolicy.html" title="Leveldb::Filterpolicy (class)">Filterpolicy</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+721</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 721</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_filter_policy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_filter_policy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Filterpolicy</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_info_log-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_info_log</strong>(options, logger) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Logger.html" title="Leveldb::Logger (class)">Logger</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+502</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 502</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_info_log</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_info_log</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='const'>Logger</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_max_open_files-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_max_open_files</strong>(options, int) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>int</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+512</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 512</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_max_open_files</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_max_open_files</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:int</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_paranoid_checks-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_paranoid_checks</strong>(options, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+492</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 492</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_paranoid_checks</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_paranoid_checks</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="options_set_write_buffer_size-class_method">
+  
+    + (<tt>nil</tt>) <strong>options_set_write_buffer_size</strong>(options, u_long) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_long</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+907</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 907</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:options_set_write_buffer_size</span><span class='comma'>,</span> <span class='symbol'>:leveldb_options_set_write_buffer_size</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="property_value-class_method">
+  
+    + (<tt>String</tt>) <strong>property_value</strong>(db, propname) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns NULL if property name is unknown.
+   Else returns a pointer to a malloc()-ed null-terminated value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>propname</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+660</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 660</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:property_value</span><span class='comma'>,</span> <span class='symbol'>:leveldb_property_value</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:string</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="put-class_method">
+  
+    + (<tt>nil</tt>) <strong>put</strong>(db, options, key, keylen, val, vallen, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keylen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>val</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vallen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+318</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 318</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:put</span><span class='comma'>,</span> <span class='symbol'>:leveldb_put</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="readoptions_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>) <strong>readoptions_create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Read options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+558</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 558</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Readoptions</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="readoptions_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>readoptions_destroy</strong>(readoptions) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Read options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>readoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+869</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 869</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="readoptions_set_fill_cache-class_method">
+  
+    + (<tt>nil</tt>) <strong>readoptions_set_fill_cache</strong>(readoptions, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Read options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>readoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+772</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 772</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_fill_cache</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_fill_cache</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="readoptions_set_snapshot-class_method">
+  
+    + (<tt>nil</tt>) <strong>readoptions_set_snapshot</strong>(readoptions, snapshot) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>readoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>snapshot</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+578</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 578</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="readoptions_set_verify_checksums-class_method">
+  
+    + (<tt>nil</tt>) <strong>readoptions_set_verify_checksums</strong>(readoptions, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>readoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Readoptions.html" title="Leveldb::Readoptions (class)">Readoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+568</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 568</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:readoptions_set_verify_checksums</span><span class='comma'>,</span> <span class='symbol'>:leveldb_readoptions_set_verify_checksums</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Readoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="release_snapshot-class_method">
+  
+    + (<tt>nil</tt>) <strong>release_snapshot</strong>(db, snapshot) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>snapshot</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Snapshot.html" title="Leveldb::Snapshot (class)">Snapshot</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+351</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 351</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:release_snapshot</span><span class='comma'>,</span> <span class='symbol'>:leveldb_release_snapshot</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Snapshot</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="repair_db-class_method">
+  
+    + (<tt>nil</tt>) <strong>repair_db</strong>(options, name, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Management operations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Options.html" title="Leveldb::Options (class)">Options</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+671</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 671</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:repair_db</span><span class='comma'>,</span> <span class='symbol'>:leveldb_repair_db</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Options</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write-class_method">
+  
+    + (<tt>nil</tt>) <strong>write</strong>(db, options, batch, errptr) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>db</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/T.html" title="Leveldb::T (class)">T</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>errptr</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(**CharS)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 330</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:write</span><span class='comma'>,</span> <span class='symbol'>:leveldb_write</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>T</span><span class='comma'>,</span> <span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_clear-class_method">
+  
+    + (<tt>nil</tt>) <strong>writebatch_clear</strong>(writebatch) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writebatch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+443</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 443</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_clear</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_clear</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>) <strong>writebatch_create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write batch</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+434</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 434</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writebatch</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_delete-class_method">
+  
+    + (<tt>nil</tt>) <strong>writebatch_delete</strong>(writebatch, key, klen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writebatch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>klen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+454</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 454</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_delete</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_delete</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>writebatch_destroy</strong>(writebatch) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write batch</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writebatch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+699</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 699</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_iterate-class_method">
+  
+    + (<tt>nil</tt>) <strong>writebatch_iterate</strong>(writebatch, state, put, deleted) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>(Not documented)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writebatch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>state</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*Void)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>put</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>deleted</span>
+      
+      
+        <span class='type'>(<tt>FFI::Pointer(*)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+711</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 711</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_iterate</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_iterate</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='comma'>,</span> <span class='symbol'>:pointer</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writebatch_put-class_method">
+  
+    + (<tt>nil</tt>) <strong>writebatch_put</strong>(writebatch, key, klen, val, vlen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write batch</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writebatch</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writebatch.html" title="Leveldb::Writebatch (class)">Writebatch</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>klen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>val</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vlen</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+840</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 840</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writebatch_put</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writebatch_put</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writebatch</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='comma'>,</span> <span class='symbol'>:string</span><span class='comma'>,</span> <span class='symbol'>:ulong</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writeoptions_create-class_method">
+  
+    + (<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>) <strong>writeoptions_create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+915</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 915</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_create</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_create</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='const'>Writeoptions</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writeoptions_destroy-class_method">
+  
+    + (<tt>nil</tt>) <strong>writeoptions_destroy</strong>(writeoptions) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writeoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+587</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 587</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_destroy</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_destroy</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writeoptions</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writeoptions_set_sync-class_method">
+  
+    + (<tt>nil</tt>) <strong>writeoptions_set_sync</strong>(writeoptions, u_char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Write options</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>writeoptions</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Leveldb/Writeoptions.html" title="Leveldb::Writeoptions (class)">Writeoptions</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>u_char</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+782</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/leveldb.rb', line 782</span>
+
+<span class='id identifier rubyid_attach_function'>attach_function</span> <span class='symbol'>:writeoptions_set_sync</span><span class='comma'>,</span> <span class='symbol'>:leveldb_writeoptions_set_sync</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='const'>Writeoptions</span><span class='comma'>,</span> <span class='symbol'>:uchar</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:void</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Jun 18 20:26:08 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.6.1 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>
