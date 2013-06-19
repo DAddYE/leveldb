@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Leveldb::VERSION
   spec.authors       = ["DAddYE"]
   spec.email         = ["info@daddye.it"]
-  spec.description   = "leveldb for Ruby"
+  spec.description   = "LevelDB for Ruby"
   spec.summary       = spec.description
   spec.homepage      = "https://github.com/DAddYE/leveldb"
   spec.license       = "MIT"
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     spec.platform = "java"
   else
     spec.extensions = Dir["ext/Rakefile"]
-    spec.files += Dir["ext/leveldb/**/*.{c,h,mk,d}"] -
+    spec.files += Dir["ext/leveldb/**/*.{c,cc,h,mk,d}"] -
       Dir["ext/leveldb/doc/*"] +
       Dir["ext/leveldb/LICENSE"] +
       Dir["ext/leveldb/Makefile"]
