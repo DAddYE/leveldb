@@ -4,6 +4,42 @@ module Leveldb
   extend FFI::Library
   ffi_lib File.expand_path("../../ext/leveldb/libleveldb.#{FFI::Platform::LIBSUFFIX}", __FILE__)
 
+  class FFI::Struct
+    def self.release(pointer)
+      Leveldb.free(pointer) unless pointer.null?
+    end
+  end
+
+  class Err
+    def initialize
+      @_err = FFI::MemoryPointer.new(:pointer, 1)
+    end
+
+    def ptr
+      @_err.read_pointer
+    end
+
+    def to_ptr
+      @_err
+    end
+
+    def null?
+      ptr.null?
+    end
+
+    def message
+      ptr.read_string
+    end
+  end
+
+  def err_create
+    Err.new
+  end
+
+  def read_len
+    FFI::MemoryPointer.new(:size_t)
+  end
+
   ##
   # Writing FFI::Gen::Enum
   #
@@ -11,8 +47,16 @@ module Leveldb
   # Writing FFI::Gen::StructOrUnion
   #
   # (Not documented)
-  class T < FFI::Struct
+  class DB < FFI::Struct
     layout :dummy, :char
+
+    def close
+      Leveldb.close(self)
+    end
+
+    def self.release
+      # free by #close
+    end
   end
 
   # (Not documented)
@@ -297,15 +341,15 @@ module Leveldb
   # @param [Options] options
   # @param [String] name
   # @param [FFI::Pointer(**CharS)] errptr
-  # @return [T]
+  # @return [DB]
   # @scope class
   #
-  attach_function :open, :leveldb_open, [Options, :string, :pointer], T
+  attach_function :open, :leveldb_open, [Options, :string, :pointer], DB.auto_ptr
 
   # (Not documented)
   #
   # @method put(db, options, key, keylen, val, vallen, errptr)
-  # @param [T] db
+  # @param [DB] db
   # @param [Writeoptions] options
   # @param [String] key
   # @param [Integer] keylen
@@ -315,46 +359,52 @@ module Leveldb
   # @return [nil]
   # @scope class
   #
-  attach_function :put, :leveldb_put, [T, Writeoptions, :string, :ulong, :string, :ulong, :pointer], :void
+  attach_function :put, :leveldb_put, [DB, Writeoptions, :string, :ulong, :string, :ulong, :pointer], :void
+
+  alias __put put
+  def self.put(db, wo, key, value, err)
+    __put(db, wo, key, key.size, value, value.size, err)
+  end
+  def put(*args); Leveldb.put(*args); end
 
   # (Not documented)
   #
   # @method write(db, options, batch, errptr)
-  # @param [T] db
+  # @param [DB] db
   # @param [Writeoptions] options
   # @param [Writebatch] batch
   # @param [FFI::Pointer(**CharS)] errptr
   # @return [nil]
   # @scope class
   #
-  attach_function :write, :leveldb_write, [T, Writeoptions, Writebatch, :pointer], :void
+  attach_function :write, :leveldb_write, [DB, Writeoptions, Writebatch, :pointer], :void
 
   # Returns NULL if not found.  A malloc()ed array otherwise.
   #    Stores the length of the array in *vallen.
   #
   # @method create_iterator(db, options)
-  # @param [T] db
+  # @param [DB] db
   # @param [Readoptions] options
   # @return [Iterator]
   # @scope class
   #
-  attach_function :create_iterator, :leveldb_create_iterator, [T, Readoptions], Iterator
+  attach_function :create_iterator, :leveldb_create_iterator, [DB, Readoptions], Iterator.auto_ptr
 
   # (Not documented)
   #
   # @method release_snapshot(db, snapshot)
-  # @param [T] db
+  # @param [DB] db
   # @param [Snapshot] snapshot
   # @return [nil]
   # @scope class
   #
-  attach_function :release_snapshot, :leveldb_release_snapshot, [T, Snapshot], :void
+  attach_function :release_snapshot, :leveldb_release_snapshot, [DB, Snapshot], :void
 
   # Returns NULL if property name is unknown.
   #    Else returns a pointer to a malloc()-ed null-terminated value.
   #
   # @method approximate_sizes(db, num_ranges, range_start_key, range_start_key_len, range_limit_key, range_limit_key_len, sizes)
-  # @param [T] db
+  # @param [DB] db
   # @param [Integer] num_ranges
   # @param [FFI::Pointer(**CharS)] range_start_key
   # @param [FFI::Pointer(*Size)] range_start_key_len
@@ -364,7 +414,7 @@ module Leveldb
   # @return [nil]
   # @scope class
   #
-  attach_function :approximate_sizes, :leveldb_approximate_sizes, [T, :int, :pointer, :pointer, :pointer, :pointer, :pointer], :void
+  attach_function :approximate_sizes, :leveldb_approximate_sizes, [DB, :int, :pointer, :pointer, :pointer, :pointer, :pointer], :void
 
   # Management operations
   #
@@ -431,7 +481,7 @@ module Leveldb
   # @return [Writebatch]
   # @scope class
   #
-  attach_function :writebatch_create, :leveldb_writebatch_create, [], Writebatch
+  attach_function :writebatch_create, :leveldb_writebatch_create, [], Writebatch.auto_ptr
 
   # (Not documented)
   #
@@ -459,7 +509,7 @@ module Leveldb
   # @return [Options]
   # @scope class
   #
-  attach_function :options_create, :leveldb_options_create, [], Options
+  attach_function :options_create, :leveldb_options_create, [], Options.auto_ptr
 
   # (Not documented)
   #
@@ -555,7 +605,7 @@ module Leveldb
   # @return [Readoptions]
   # @scope class
   #
-  attach_function :readoptions_create, :leveldb_readoptions_create, [], Readoptions
+  attach_function :readoptions_create, :leveldb_readoptions_create, [], Readoptions.auto_ptr
 
   # (Not documented)
   #
@@ -593,7 +643,7 @@ module Leveldb
   # @return [Cache]
   # @scope class
   #
-  attach_function :cache_create_lru, :leveldb_cache_create_lru, [:ulong], Cache
+  attach_function :cache_create_lru, :leveldb_cache_create_lru, [:ulong], Cache.auto_ptr
 
   # Env
   #
@@ -601,7 +651,7 @@ module Leveldb
   # @return [Env]
   # @scope class
   #
-  attach_function :create_default_env, :leveldb_create_default_env, [], Env
+  attach_function :create_default_env, :leveldb_create_default_env, [], Env.auto_ptr
 
   # Calls free(ptr).
   #    REQUIRES: ptr was malloc()-ed and returned by one of the routines
@@ -627,17 +677,17 @@ module Leveldb
   # (Not documented)
   #
   # @method close(db)
-  # @param [T] db
+  # @param [DB] db
   # @return [nil]
   # @scope class
   #
-  attach_function :close, :leveldb_close, [T], :void
+  attach_function :close, :leveldb_close, [DB], :void
 
   # Returns NULL if not found.  A malloc()ed array otherwise.
   #    Stores the length of the array in *vallen.
   #
   # @method get(db, options, key, keylen, vallen, errptr)
-  # @param [T] db
+  # @param [DB] db
   # @param [Readoptions] options
   # @param [String] key
   # @param [Integer] keylen
@@ -646,18 +696,18 @@ module Leveldb
   # @return [String]
   # @scope class
   #
-  attach_function :get, :leveldb_get, [T, Readoptions, :string, :ulong, :pointer, :pointer], :string
+  attach_function :get, :leveldb_get, [DB, Readoptions, :string, :ulong, :pointer, :pointer], :string
 
   # Returns NULL if property name is unknown.
   #    Else returns a pointer to a malloc()-ed null-terminated value.
   #
   # @method property_value(db, propname)
-  # @param [T] db
+  # @param [DB] db
   # @param [String] propname
   # @return [String]
   # @scope class
   #
-  attach_function :property_value, :leveldb_property_value, [T, :string], :string
+  attach_function :property_value, :leveldb_property_value, [DB, :string], :string
 
   # Management operations
   #
@@ -750,7 +800,7 @@ module Leveldb
   # @return [Comparator]
   # @scope class
   #
-  attach_function :comparator_create, :leveldb_comparator_create, [:pointer, :pointer, :pointer, :pointer], Comparator
+  attach_function :comparator_create, :leveldb_comparator_create, [:pointer, :pointer, :pointer, :pointer], Comparator.auto_ptr
 
   # Filter policy
   #
@@ -759,7 +809,7 @@ module Leveldb
   # @return [Filterpolicy]
   # @scope class
   #
-  attach_function :filterpolicy_create_bloom, :leveldb_filterpolicy_create_bloom, [:int], Filterpolicy
+  attach_function :filterpolicy_create_bloom, :leveldb_filterpolicy_create_bloom, [:int], Filterpolicy.auto_ptr
 
   # Read options
   #
@@ -793,7 +843,7 @@ module Leveldb
   # (Not documented)
   #
   # @method delete(db, options, key, keylen, errptr)
-  # @param [T] db
+  # @param [DB] db
   # @param [Writeoptions] options
   # @param [String] key
   # @param [Integer] keylen
@@ -801,13 +851,13 @@ module Leveldb
   # @return [nil]
   # @scope class
   #
-  attach_function :delete, :leveldb_delete, [T, Writeoptions, :string, :ulong, :pointer], :void
+  attach_function :delete, :leveldb_delete, [DB, Writeoptions, :string, :ulong, :pointer], :void
 
   # Returns NULL if property name is unknown.
   #    Else returns a pointer to a malloc()-ed null-terminated value.
   #
   # @method compact_range(db, start_key, start_key_len, limit_key, limit_key_len)
-  # @param [T] db
+  # @param [DB] db
   # @param [String] start_key
   # @param [Integer] start_key_len
   # @param [String] limit_key
@@ -815,7 +865,7 @@ module Leveldb
   # @return [nil]
   # @scope class
   #
-  attach_function :compact_range, :leveldb_compact_range, [T, :string, :ulong, :string, :ulong], :void
+  attach_function :compact_range, :leveldb_compact_range, [DB, :string, :ulong, :string, :ulong], :void
 
   # Iterator
   #
@@ -880,11 +930,11 @@ module Leveldb
   # (Not documented)
   #
   # @method create_snapshot(db)
-  # @param [T] db
+  # @param [DB] db
   # @return [Snapshot]
   # @scope class
   #
-  attach_function :create_snapshot, :leveldb_create_snapshot, [T], Snapshot
+  attach_function :create_snapshot, :leveldb_create_snapshot, [DB], Snapshot.auto_ptr
 
   # Iterator
   #
@@ -912,7 +962,7 @@ module Leveldb
   # @return [Writeoptions]
   # @scope class
   #
-  attach_function :writeoptions_create, :leveldb_writeoptions_create, [], Writeoptions
+  attach_function :writeoptions_create, :leveldb_writeoptions_create, [], Writeoptions.auto_ptr
 
   # (Not documented)
   #
@@ -934,7 +984,7 @@ module Leveldb
   # @return [Filterpolicy]
   # @scope class
   #
-  attach_function :filterpolicy_create, :leveldb_filterpolicy_create, [:pointer, :pointer, :pointer, :pointer, :pointer], Filterpolicy
+  attach_function :filterpolicy_create, :leveldb_filterpolicy_create, [:pointer, :pointer, :pointer, :pointer, :pointer], Filterpolicy.auto_ptr
 
   # (Not documented)
   #
