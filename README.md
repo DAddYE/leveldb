@@ -9,17 +9,25 @@ Experimental FFI bindings for leveldb
 
 ## Installation
 
+### Development
+
     $ brew install snappy
     $ git clone git://github.com/DAddYE/leveldb.git
     $ cd leveldb
     $ rake compile
     $ rake console
 
+### Standard
+
+    $ brew install snappy
+    $ gem install leveldb
+    $ irb -r leveldb
+
 ## Usage
 
 Here a basic usage, for more advanced please see the doc.
 
-Right now is very **low** level, I'm planning to add an higher layer api.
+Right now is very **low** level, I'm planning to add an higher layer api soon.
 
 ### Prepare
 
