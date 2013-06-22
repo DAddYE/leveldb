@@ -1,11 +1,11 @@
 require 'bundler/gem_tasks'
 require 'bundler/setup'
 require 'ffi/gen'
+require 'rake/testtask'
 require 'yard'
 
 task :check do
   sh 'git submodule update --init' unless File.exist?('ext/leveldb/.git')
-  raise "Please install llvm" unless system('which llvm-config')
 end
 
 desc "Generates leveldb ext"
@@ -29,16 +29,18 @@ default_config = -> (header, suffix="", extra={}) do
     cflags:      `llvm-config --cflags`.split(" "),
     prefixes:    ['leveldb_'],
     suffixes:    ['_t', '_s'],
-    output:      "lib/leveldb#{suffix}.rb"
+    output:      "lib/native#{suffix}.rb"
   }.merge(extra)
+end
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/test_*.rb']
 end
 
 desc 'Generates FFI bindings'
 task :ffi => :check do
-  # Dir['./ext/leveldb/include/leveldb/*.h'].each do |header|
-  #   name = File.basename(header, '.h')
-  #   FFI::Gen.generate(default_config["#{name}.h", "-#{name}"])
-  # end
+  raise 'Please install llvm' unless system('which llvm-config')
   FFI::Gen.generate(default_config["c.h"])
 end
 
