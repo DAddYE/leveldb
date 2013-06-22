@@ -88,9 +88,17 @@ module LevelDB
     def each(&block)
       raise ClosedError if closed?
 
-      @_iterator ||= Iterator.new(@_db, @_read_opts, @_read_len)
-      @_iterator.each(&block)
-      @_iterator
+      iterator = Iterator.new(@_db, @_read_opts, @_read_len)
+      iterator.each(&block)
+      iterator
+    end
+
+    def reverse_each(&block)
+      each.reverse(&block)
+    end
+
+    def range(from, to, &block)
+      each.range(from, to, &block)
     end
 
     def keys
@@ -131,41 +139,115 @@ module LevelDB
 
   class Iterator
 
-    def initialize(db, read_opts, read_len)
-      @_db, @_read_opts, @_read_len = db, read_opts, read_len
-      @_err = C::Pointer.malloc(C::SIZEOF_VOIDP)
-      @_err.free = C[:free]
-      @_iterator = C.create_iterator(@_db, @_read_opts)
+    def initialize(db, read_opts, read_len, reverse=false)
+      @_db        = db
+      @_read_opts = read_opts
+      @_read_len  = read_len
+      @_reverse   = reverse
+      @_err       = C::Pointer.malloc(C::SIZEOF_VOIDP)
+      @_err.free  = C[:free]
+      @_iterator  = C.create_iterator(@_db, @_read_opts)
 
-      C.iter_seek_to_first @_iterator
+      rewind
     end
 
-    def each(*args, &block)
-      return self unless block_given?
-      while kv = self.next
-        block[*kv]
+    def rewind
+      if reverse?
+        C.iter_seek_to_last(@_iterator)
+      else
+        C.iter_seek_to_first(@_iterator)
       end
     end
 
+    def reverse
+      @_reverse = !@_reverse
+      rewind
+
+      self
+    end
+
+    def each(&block)
+      return self unless block_given?
+      while valid?
+        if current = self.next
+          block[*current]
+        end
+      end
+      @_range = nil
+    end
+
+    def range(from, to, &block)
+      @_range = [from.to_s, to.to_s].sort
+      @_range = @_range.reverse if reverse?
+      each(&block)
+    end
+
     def next
+
+      while valid? && !in_range?
+        move_next
+      end if range?
+
+      key, val = current
+
+      return unless key
+
+      [key, val]
+    ensure
+      move_next
+    end
+
+    def peek
+      self.next
+    ensure
+      move_prev
+    end
+
+    def valid?
+      C.iter_valid(@_iterator) == 1
+    end
+
+    def reverse?
+      @_reverse
+    end
+
+    def range?
+      !!@_range
+    end
+
+    private
+    def current
       return unless valid?
 
       key = C.iter_key(@_iterator, @_read_len).to_s(@_read_len.value)
       val = C.iter_value(@_iterator, @_read_len).to_s(@_read_len.value)
 
       [key, val]
-    ensure
-      C.iter_next(@_iterator) if valid?
     end
 
-    def peek
-      self.next
-    ensure
-      C.iter_prev(@_iterator) if valid?
+    def in_range?
+      reverse? ? (current[0] <= @_range[0] && current[0] >= @_range[1]) :
+                 (current[0] >= @_range[0] && current[0] <= @_range[1])
     end
 
-    def valid?
-      C.iter_valid(@_iterator) == 1
+    def move_next
+      return unless valid?
+
+      if reverse?
+        C.iter_prev(@_iterator)
+      else
+        C.iter_next(@_iterator)
+      end
+    end
+
+    def move_prev
+      return unless valid?
+
+      if reverse?
+        C.iter_next(@_iterator)
+      else
+        C.iter_prev(@_iterator)
+      end
     end
 
     def errors?
