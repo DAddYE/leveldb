@@ -95,12 +95,8 @@ db.get('a') # => 1
 
 ## Todo
 
-1. Add support for full `write` and `read` options
-2. Add snapshots
-3. Add pluggable serializers
-4. Custom comparators
-5. Async
-6. Bloom Filters
+1. Add pluggable serializers
+2. Custom comparators
 
 ## Contributing
 

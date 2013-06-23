@@ -13,13 +13,42 @@ module LevelDB
     attr_reader :path
     @@mutex = Mutex.new
 
+    DEFAULT = {
+      create_if_missing: true,
+      error_if_exists: false,
+      paranoid_checks: false,
+      write_buffer_size: 4 << 20,
+      block_size: 4096,
+      max_open_files: 1000,
+      block_cache_size: 8 * (2 << 20),
+      block_restart_interval: 16,
+      compression: false,
+      verify_checksums: false,
+      fill_cache: true
+    }
+
     def initialize(path, options={})
       @_db_opts    = C.options_create
       @_write_opts = C.writeoptions_create
       @_read_opts  = C.readoptions_create
       @_read_len   = C.value('size_t')
 
-      C.options_set_create_if_missing @_db_opts, 1
+      options = DEFAULT.merge(options)
+
+      @_cache = C.cache_create_lru(options[:block_cache_size])
+
+      C.readoptions_set_verify_checksums(@_read_opts, options[:verify_checksums] ? 1 : 0)
+      C.readoptions_set_fill_cache(@_read_opts, options[:fill_cache] ? 1 : 0)
+
+      C.options_set_create_if_missing(@_db_opts, options[:create_if_missing] ? 1 : 0)
+      C.options_set_error_if_exists(@_db_opts, options[:error_if_exists] ? 1 : 0)
+      C.options_set_paranoid_checks(@_db_opts, options[:paranoid_checks] ? 1 : 0)
+      C.options_set_write_buffer_size(@_db_opts, options[:write_buffer_size])
+      C.options_set_block_size(@_db_opts, options[:block_size])
+      C.options_set_cache(@_db_opts, @_cache)
+      C.options_set_max_open_files(@_db_opts, options[:max_open_files])
+      C.options_set_block_restart_interval(@_db_opts, options[:block_restart_interval])
+      C.options_set_compression(@_db_opts, options[:compression] ? 1 : 0)
 
       @_db_opts.free = @_write_opts.free = @_read_opts.free = C[:options_destroy]
 
