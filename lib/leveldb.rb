@@ -94,11 +94,15 @@ module LevelDB
     end
 
     def reverse_each(&block)
-      each.reverse(&block)
+      each.reverse_each(&block)
     end
 
     def range(from, to, &block)
       each.range(from, to, &block)
+    end
+
+    def reverse_range(from, to, &block)
+      reverse_each.range(from, to, &block)
     end
 
     def keys
@@ -147,7 +151,7 @@ module LevelDB
       @_err       = C::Pointer.malloc(C::SIZEOF_VOIDP)
       @_err.free  = C[:free]
       @_iterator  = C.create_iterator(@_db, @_read_opts)
-
+      # @_iterator.free = C[:iter_destroy]
       rewind
     end
 
@@ -159,20 +163,17 @@ module LevelDB
       end
     end
 
-    def reverse
+    def reverse_each(&block)
       @_reverse = !@_reverse
       rewind
-
-      self
+      each(&block)
     end
 
     def each(&block)
       return self unless block_given?
-      while valid?
-        if current = self.next
-          block[*current]
-        end
-      end
+      if current = self.next
+        block[*current]
+      end while valid?
       @_range = nil
     end
 
@@ -183,7 +184,6 @@ module LevelDB
     end
 
     def next
-
       while valid? && !in_range?
         move_next
       end if range?
