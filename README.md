@@ -6,7 +6,6 @@ embedded database. LevelDB is a persistent ordered map.
 ## Documentation
 
 * [Website](http://daddye.it/leveldb)
-* [Api Doc](http://daddye.it/leveldb/doc)
 
 ## Installation
 
