@@ -28,46 +28,46 @@ LevelDB on Ruby
 Here a basic usage, for more advanced please see the doc.
 
 ```rb
-  db = LevelDB::DB.new '/tmp/foo'
+db = LevelDB::DB.new '/tmp/foo'
 
-  # Writing
-  db.put('hello', 'world')
-  db['hello'] = 'world'
+# Writing
+db.put('hello', 'world')
+db['hello'] = 'world'
 
-  # Reading
-  db.get('hello') # => world
-  db['hello'] # => world
+# Reading
+db.get('hello') # => world
+db['hello'] # => world
 
-  # Deleting
-  db.delete('hello')
+# Deleting
+db.delete('hello')
 
-  # Iterating
-  db.each { |key, val| puts "Key: #{key}, Val: #{val}" }
-  db.reverse_each { |key, val| puts "Key: #{key}, Val: #{val}" }
-  db.keys
-  db.values
-  db.map { |k,v| do_some_with(k, v) }
-  db.reduce([]) { |memo, (k, v)| memo << k + v; memo }
-  db.each # => enumerator
-  db.reverse_each # => enumerator
+# Iterating
+db.each { |key, val| puts "Key: #{key}, Val: #{val}" }
+db.reverse_each { |key, val| puts "Key: #{key}, Val: #{val}" }
+db.keys
+db.values
+db.map { |k,v| do_some_with(k, v) }
+db.reduce([]) { |memo, (k, v)| memo << k + v; memo }
+db.each # => enumerator
+db.reverse_each # => enumerator
 
-  # Ranges
-  db.range('c', 'd') { |k,v| do_some_with_only_keys_in_range }
-  db.reverse_range('c', 'd') # => same as above but results are in reverse order
-  db.range(...) # => enumerable
+# Ranges
+db.range('c', 'd') { |k,v| do_some_with_only_keys_in_range }
+db.reverse_range('c', 'd') # => same as above but results are in reverse order
+db.range(...) # => enumerable
 
-  # Batches
-  db.batch do |b|
-    b.put 'a', 1
-    b.put 'b', 2
-    b.delete 'c'
-  end
-
-  b = db.batch
+# Batches
+db.batch do |b|
   b.put 'a', 1
   b.put 'b', 2
   b.delete 'c'
-  b.write!
+end
+
+b = db.batch
+b.put 'a', 1
+b.put 'b', 2
+b.delete 'c'
+b.write!
 ```
 
 ## Todo
