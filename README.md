@@ -3,8 +3,30 @@
 LevelDB is a database library (C++, 350 kB) written at Google. It is an
 embedded database. LevelDB is a persistent ordered map.
 
-## Documentation
+> LevelDB stores keys and values in arbitrary byte arrays, and data is sorted by
+> key. It supports batching writes, forward and backward iteration, and
+> compression of the data via Google's Snappy compression library.  Still,
+> LevelDB is not a SQL database. (Wikipedia)
 
+## Features
+
+* Keys and values are arbitrary byte arrays.
+* Data is stored **sorted** by key.
+* Callers can provide a (_soon_) **custom comparison** function to override the sort order.
+* The basic operations are Put(key,value), Get(key), Delete(key).
+* Multiple changes can be made in one **atomic batch**.
+* Users can create a **transient snapshot** to get a consistent view of data.
+* _Forward_ and _backward_ iteration is supported over the data.
+* Data is automatically **compressed** using the **Snappy** compression library.
+* External activity (file system operations etc.) is relayed through a virtual
+  interface so users can customize the operating system interactions.
+* Detailed documentation about how to use the library is included
+  with the [source code](http://code.google.com/p/leveldb/).
+
+## Reading
+
+* [LevelDB](http://code.google.com/p/leveldb/)
+* [Great Reading](http://skipperkongen.dk/2013/02/14/having-a-look-at-leveldb/)
 * [Website](http://daddye.it/leveldb)
 
 ## Installation
