@@ -33,14 +33,13 @@ module LevelDB
     # end
     # alias clear! clear
 
-    def write
+    def write!
       C.write(@_db, @_write_opts, @_batch, @_err)
 
       raise Error, error_message if errors?
 
       true
     end
-    alias write! write
 
     def errors?
       return unless @_err

@@ -1,6 +1,7 @@
 require 'thread'
 require 'leveldb/iterator'
 require 'leveldb/batch'
+require 'Leveldb/snapshot'
 
 module LevelDB
   class DB
@@ -69,6 +70,10 @@ module LevelDB
       raise Error, error_message if errors?
 
       val
+    end
+
+    def snapshot
+      Snapshot.new(@_db, @_read_opts)
     end
 
     def batch(&block)

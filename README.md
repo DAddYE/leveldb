@@ -1,6 +1,7 @@
 # Leveldb
 
-LevelDB on Ruby
+LevelDB is a database library (C++, 350 kB) written at Google. It is an
+embedded database. LevelDB is a persistent ordered map.
 
 ## Documentation
 
@@ -25,7 +26,7 @@ LevelDB on Ruby
 
 ## Usage
 
-Here a basic usage, for more advanced please see the doc.
+Here a basic usage:
 
 ```rb
 db = LevelDB::DB.new '/tmp/foo'
@@ -68,6 +69,28 @@ b.put 'a', 1
 b.put 'b', 2
 b.delete 'c'
 b.write!
+
+# Snapshots
+db.put 'a', 1
+db.put 'b', 2
+db.put 'c', 3
+
+snap = db.snapshot
+
+db.delete 'a'
+db.get 'a' # => nil
+
+snap.set!
+
+db.get('a') # => 1
+
+snap.reset!
+
+db.get('a') # => nil
+
+snap.set!
+
+db.get('a') # => 1
 ```
 
 ## Todo
@@ -75,6 +98,9 @@ b.write!
 1. Add support for full `write` and `read` options
 2. Add snapshots
 3. Add pluggable serializers
+4. Custom comparators
+5. Async
+6. Bloom Filters
 
 ## Contributing
 
