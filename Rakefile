@@ -4,6 +4,8 @@ require 'ffi/gen'
 require 'rake/testtask'
 require 'yard'
 
+task :default => :test
+
 task :check do
   sh 'git submodule update --init' unless File.exist?('ext/leveldb/.git')
 end
