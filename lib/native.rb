@@ -4,6 +4,8 @@ module LevelDB
   module Native
     include Fiddler
 
+    LIBPATHS.push File.expand_path('../../ext/leveldb', __FILE__)
+
     prefix 'leveldb_'
     dlload 'libleveldb'
 
