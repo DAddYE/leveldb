@@ -31,14 +31,14 @@
         <h1>
 <a name="leveldb" class="anchor" href="#leveldb"><span class="octicon octicon-link"></span></a>Leveldb</h1>
 
-<p>Experimental FFI bindings for leveldb</p>
+<p>LevelDB is a database library (C++, 350 kB) written at Google. It is an
+embedded database. LevelDB is a persistent ordered map.</p>
 
 <h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <ul>
 <li><a href="http://daddye.it/leveldb">Website</a></li>
-<li><a href="http://daddye.it/leveldb/doc">Api Doc</a></li>
 </ul><h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
@@ -63,76 +63,90 @@ $ irb -r leveldb
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Here a basic usage, for more advanced please see the doc.</p>
+<p>Here a basic usage:</p>
 
-<p>Right now is very <strong>low</strong> level, I'm planning to add an higher layer api soon.</p>
+<div class="highlight"><pre><span class="n">db</span> <span class="o">=</span> <span class="ss">LevelDB</span><span class="p">:</span><span class="ss">:DB</span><span class="o">.</span><span class="n">new</span> <span class="s1">'/tmp/foo'</span>
 
-<h3>
-<a name="prepare" class="anchor" href="#prepare"><span class="octicon octicon-link"></span></a>Prepare</h3>
+<span class="c1"># Writing</span>
+<span class="n">db</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'world'</span><span class="p">)</span>
+<span class="n">db</span><span class="o">[</span><span class="s1">'hello'</span><span class="o">]</span> <span class="o">=</span> <span class="s1">'world'</span>
 
-<p>If you plan to hack in a console ...</p>
+<span class="c1"># Reading</span>
+<span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span> <span class="c1"># =&gt; world</span>
+<span class="n">db</span><span class="o">[</span><span class="s1">'hello'</span><span class="o">]</span> <span class="c1"># =&gt; world</span>
 
-<p>Remember that <code>err</code> is important, we are going to use this var in all our calls</p>
+<span class="c1"># Deleting</span>
+<span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
 
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'leveldb'</span>
+<span class="c1"># Iterating</span>
+<span class="n">db</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Key: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">, Val: </span><span class="si">#{</span><span class="n">val</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">db</span><span class="o">.</span><span class="n">reverse_each</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Key: </span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">, Val: </span><span class="si">#{</span><span class="n">val</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">db</span><span class="o">.</span><span class="n">keys</span>
+<span class="n">db</span><span class="o">.</span><span class="n">values</span>
+<span class="n">db</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">do_some_with</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">db</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">memo</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">|</span> <span class="n">memo</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">+</span> <span class="n">v</span><span class="p">;</span> <span class="n">memo</span> <span class="p">}</span>
+<span class="n">db</span><span class="o">.</span><span class="n">each</span> <span class="c1"># =&gt; enumerator</span>
+<span class="n">db</span><span class="o">.</span><span class="n">reverse_each</span> <span class="c1"># =&gt; enumerator</span>
 
-<span class="kp">include</span> <span class="no">Leveldb</span>
+<span class="c1"># Ranges</span>
+<span class="n">db</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">do_some_with_only_keys_in_range</span> <span class="p">}</span>
+<span class="n">db</span><span class="o">.</span><span class="n">reverse_range</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">)</span> <span class="c1"># =&gt; same as above but results are in reverse order</span>
+<span class="n">db</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="p">)</span> <span class="c1"># =&gt; enumerable</span>
 
-<span class="n">err</span> <span class="o">=</span> <span class="n">err_create</span>
-</pre></div>
+<span class="c1"># Batches</span>
+<span class="n">db</span><span class="o">.</span><span class="n">batch</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+  <span class="n">b</span><span class="o">.</span><span class="n">put</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">1</span>
+  <span class="n">b</span><span class="o">.</span><span class="n">put</span> <span class="s1">'b'</span><span class="p">,</span> <span class="mi">2</span>
+  <span class="n">b</span><span class="o">.</span><span class="n">delete</span> <span class="s1">'c'</span>
+<span class="k">end</span>
 
-<h3>
-<a name="open" class="anchor" href="#open"><span class="octicon octicon-link"></span></a>Open</h3>
+<span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">batch</span>
+<span class="n">b</span><span class="o">.</span><span class="n">put</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">b</span><span class="o">.</span><span class="n">put</span> <span class="s1">'b'</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">b</span><span class="o">.</span><span class="n">delete</span> <span class="s1">'c'</span>
+<span class="n">b</span><span class="o">.</span><span class="n">write!</span>
 
-<div class="highlight"><pre><span class="n">options</span> <span class="o">=</span> <span class="n">options_create</span>
-<span class="n">options</span><span class="o">.</span><span class="n">set_create_if_missing</span> <span class="mi">1</span>
-<span class="n">db</span> <span class="o">=</span> <span class="nb">open</span> <span class="n">options</span><span class="p">,</span> <span class="s1">'./tmp/testdb'</span><span class="p">,</span> <span class="n">err</span>
+<span class="c1"># Snapshots</span>
+<span class="n">db</span><span class="o">.</span><span class="n">put</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">db</span><span class="o">.</span><span class="n">put</span> <span class="s1">'b'</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">db</span><span class="o">.</span><span class="n">put</span> <span class="s1">'c'</span><span class="p">,</span> <span class="mi">3</span>
 
-<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
-</pre></div>
+<span class="n">snap</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">snapshot</span>
 
-<h3>
-<a name="write" class="anchor" href="#write"><span class="octicon octicon-link"></span></a>Write</h3>
+<span class="n">db</span><span class="o">.</span><span class="n">delete</span> <span class="s1">'a'</span>
+<span class="n">db</span><span class="o">.</span><span class="n">get</span> <span class="s1">'a'</span> <span class="c1"># =&gt; nil</span>
 
-<div class="highlight"><pre><span class="n">write_opts</span> <span class="o">=</span> <span class="n">writeoptions_create</span>
-<span class="n">put</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">write_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="n">snap</span><span class="o">.</span><span class="n">set!</span>
 
-<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
-</pre></div>
+<span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="c1"># =&gt; 1</span>
 
-<h3>
-<a name="read" class="anchor" href="#read"><span class="octicon octicon-link"></span></a>Read</h3>
+<span class="n">snap</span><span class="o">.</span><span class="n">reset!</span>
 
-<div class="highlight"><pre><span class="n">read_opts</span> <span class="o">=</span> <span class="n">readoptions_create</span>
-<span class="n">read</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">read_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">read_len</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="c1"># =&gt; nil</span>
 
-<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
-<span class="nb">puts</span> <span class="s2">"Key is: </span><span class="si">#{</span><span class="n">read</span><span class="si">}</span><span class="s2">"</span>
-</pre></div>
+<span class="n">snap</span><span class="o">.</span><span class="n">set!</span>
 
-<h3>
-<a name="delete" class="anchor" href="#delete"><span class="octicon octicon-link"></span></a>Delete</h3>
+<span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="c1"># =&gt; 1</span>
 
-<div class="highlight"><pre><span class="n">delete</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">write_opts</span><span class="p">,</span> <span class="s2">"key"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="c1"># Properties</span>
+<span class="n">db</span><span class="o">.</span><span class="n">read_property</span><span class="p">(</span><span class="s1">'leveldb.stats'</span><span class="p">)</span>
 
-<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
-</pre></div>
+<span class="c1"># Level  Files Size(MB) Time(sec) Read(MB) Write(MB)</span>
+<span class="c1"># --------------------------------------------------</span>
+<span class="c1">#   0        1        0         0        0         0</span>
+<span class="c1">#   1        1        0         0        0         0</span>
 
-<h3>
-<a name="close-connection" class="anchor" href="#close-connection"><span class="octicon octicon-link"></span></a>Close (connection)</h3>
-
-<div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">close</span>
-</pre></div>
-
-<h3>
-<a name="destroy-database" class="anchor" href="#destroy-database"><span class="octicon octicon-link"></span></a>Destroy (database)</h3>
-
-<div class="highlight"><pre><span class="n">destroy_db</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="s1">'./tmp/testdb'</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-
-<span class="nb">abort</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="k">unless</span> <span class="n">err</span><span class="o">.</span><span class="n">null?</span>
+<span class="c1"># same of:</span>
+<span class="n">db</span><span class="o">.</span><span class="n">stats</span>
 </pre></div>
 
 <h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>Todo</h2>
+
+<ol>
+<li>Add pluggable serializers</li>
+<li>Custom comparators</li>
+</ol><h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <ol>
