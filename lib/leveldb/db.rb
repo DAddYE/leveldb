@@ -170,6 +170,16 @@ module LevelDB
       true
     end
 
+    def read_property(name)
+      raise ClosedError if closed?
+
+      C.property_value(@_db, name).to_s
+    end
+
+    def stats
+      read_property('leveldb.stats')
+    end
+
     def errors?
       return unless @_err
       !@_err.ptr.null?

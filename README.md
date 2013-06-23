@@ -91,6 +91,17 @@ db.get('a') # => nil
 snap.set!
 
 db.get('a') # => 1
+
+# Properties
+db.read_property('leveldb.stats')
+
+# Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+# --------------------------------------------------
+#   0        1        0         0        0         0
+#   1        1        0         0        0         0
+
+# same of:
+db.stats
 ```
 
 ## Todo

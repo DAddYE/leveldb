@@ -51,4 +51,8 @@ class TestBasic < Minitest::Test
     assert d.close
     assert d.destroy
   end
+
+  def test_stats
+    assert_match /Level/, db.stats
+  end
 end
