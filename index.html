@@ -34,10 +34,36 @@
 <p>LevelDB is a database library (C++, 350 kB) written at Google. It is an
 embedded database. LevelDB is a persistent ordered map.</p>
 
+<blockquote>
+<p>LevelDB stores keys and values in arbitrary byte arrays, and data is sorted by
+key. It supports batching writes, forward and backward iteration, and
+compression of the data via Google's Snappy compression library.  Still,
+LevelDB is not a SQL database. (Wikipedia)</p>
+</blockquote>
+
 <h2>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <ul>
+<li>Keys and values are arbitrary byte arrays.</li>
+<li>Data is stored <strong>sorted</strong> by key.</li>
+<li>Callers can provide a (_soon_) <strong>custom comparison</strong> function to override the sort order.</li>
+<li>The basic operations are Put(key,value), Get(key), Delete(key).</li>
+<li>Multiple changes can be made in one <strong>atomic batch</strong>.</li>
+<li>Users can create a <strong>transient snapshot</strong> to get a consistent view of data.</li>
+<li>
+<em>Forward</em> and <em>backward</em> iteration is supported over the data.</li>
+<li>Data is automatically <strong>compressed</strong> using the <strong>Snappy</strong> compression library.</li>
+<li>External activity (file system operations etc.) is relayed through a virtual
+interface so users can customize the operating system interactions.</li>
+<li>Detailed documentation about how to use the library is included
+with the <a href="http://code.google.com/p/leveldb/">source code</a>.</li>
+</ul><h2>
+<a name="reading" class="anchor" href="#reading"><span class="octicon octicon-link"></span></a>Reading</h2>
+
+<ul>
+<li><a href="http://code.google.com/p/leveldb/">LevelDB</a></li>
+<li><a href="http://skipperkongen.dk/2013/02/14/having-a-look-at-leveldb/">Great Reading</a></li>
 <li><a href="http://daddye.it/leveldb">Website</a></li>
 </ul><h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
