@@ -1,6 +1,6 @@
 # Leveldb
 
-Experimental FFI bindings for leveldb
+LevelDB on Ruby
 
 ## Documentation
 
@@ -27,72 +27,54 @@ Experimental FFI bindings for leveldb
 
 Here a basic usage, for more advanced please see the doc.
 
-Right now is very **low** level, I'm planning to add an higher layer api soon.
-
-### Prepare
-
-If you plan to hack in a console ...
-
-Remember that `err` is important, we are going to use this var in all our calls
-
 ```rb
-require 'leveldb'
+  db = LevelDB::DB.new '/tmp/foo'
 
-include Leveldb
+  # Writing
+  db.put('hello', 'world')
+  db['hello'] = 'world'
 
-err = err_create
+  # Reading
+  db.get('hello') # => world
+  db['hello'] # => world
+
+  # Deleting
+  db.delete('hello')
+
+  # Iterating
+  db.each { |key, val| puts "Key: #{key}, Val: #{val}" }
+  db.reverse_each { |key, val| puts "Key: #{key}, Val: #{val}" }
+  db.keys
+  db.values
+  db.map { |k,v| do_some_with(k, v) }
+  db.reduce([]) { |memo, (k, v)| memo << k + v; memo }
+  db.each # => enumerator
+  db.reverse_each # => enumerator
+
+  # Ranges
+  db.range('c', 'd') { |k,v| do_some_with_only_keys_in_range }
+  db.reverse_range('c', 'd') # => same as above but results are in reverse order
+  db.range(...) # => enumerable
+
+  # Batches
+  db.batch do |b|
+    b.put 'a', 1
+    b.put 'b', 2
+    b.delete 'c'
+  end
+
+  b = db.batch
+  b.put 'a', 1
+  b.put 'b', 2
+  b.delete 'c'
+  b.write!
 ```
 
-### Open
+## Todo
 
-```ruby
-options = options_create
-options.set_create_if_missing 1
-db = open options, './tmp/testdb', err
-
-abort err.message unless err.null?
-```
-
-### Write
-
-```ruby
-write_opts = writeoptions_create
-put(db, write_opts, "key", "value", err)
-
-abort err.message unless err.null?
-```
-
-### Read
-
-```ruby
-read_opts = readoptions_create
-read = get(db, read_opts, "key", 3, read_len, err)
-
-abort err.message unless err.null?
-puts "Key is: #{read}"
-```
-
-### Delete
-
-```ruby
-delete(db, write_opts, "key", 3, err)
-
-abort err.message unless err.null?
-```
-
-### Close (connection)
-
-```ruby
-db.close
-```
-
-### Destroy (database)
-
-```ruby
-destroy_db(options, './tmp/testdb', err)
-
-abort err.message unless err.null?
-```
+1. Add support for full `write` and `read` options
+2. Add snapshots
+3. Add pluggable serializers
 
 ## Contributing
 
