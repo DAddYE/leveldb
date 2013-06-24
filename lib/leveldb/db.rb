@@ -101,6 +101,14 @@ module LevelDB
       val
     end
 
+    def exists?(key)
+      get(key) != nil
+    end
+    alias includes? exists?
+    alias contains? exists?
+    alias member?   exists?
+    alias has_key?  exists?
+
     def snapshot
       Snapshot.new(@_db, @_read_opts)
     end

@@ -29,6 +29,17 @@ class TestBasic < Minitest::Test
     assert_equal 'bax', db[:foo]
   end
 
+  def test_exists?
+    db[:foo] = :bar
+
+    assert db.exists?(:foo)
+    assert db.includes?(:foo)
+    assert db.contains?(:foo)
+    assert db.member?(:foo)
+    assert db.has_key?(:foo)
+    refute db.exists?(:foxy)
+  end
+
   def test_delete
     db[:foo] = 'bar'
 
