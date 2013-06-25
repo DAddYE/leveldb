@@ -144,7 +144,7 @@ will kill me for this, but ... on my mac:
     L3 Cache:	6 MB
     Memory:	8 GB
 
-The benchmark code is in [benchmark/leveldb.rb](/tree/master/benchmark/leveldb.rb)
+The benchmark code is in [benchmark/leveldb.rb](/benchmark/leveldb.rb)
 
 Writing/Reading `100mb` of _very_ random data of `10kb` each:
 
