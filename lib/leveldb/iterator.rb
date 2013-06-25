@@ -72,6 +72,11 @@ module LevelDB
       !!@_range
     end
 
+    def inspect
+      "#<LevelDB::Iterator:#{'0x%x' % object_id}>"
+    end
+    alias to_s inspect
+
     private
     def current
       return unless valid?

@@ -15,5 +15,10 @@ module LevelDB
     def reset!
       C.readoptions_set_snapshot(@_read_opts, nil)
     end
+
+    def inspect
+      "#<LevelDB::Snapshot:#{'0x%x' % object_id}>"
+    end
+    alias to_s inspect
   end
 end

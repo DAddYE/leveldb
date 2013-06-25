@@ -56,5 +56,10 @@ module LevelDB
       end
     end
     alias clear_errors! error_message
+
+    def inspect
+      "#<LevelDB::Batch:#{'0x%x' % object_id}>"
+    end
+    alias to_s inspect
   end
 end
