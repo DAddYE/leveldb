@@ -187,7 +187,7 @@ only a _few_ and on normal _data_ the db size will be much much better!
       0        1      100         1        0       100
 
 
-## What is the difference between a c++ pure ruby impl?
+## Difference between a c++ pure ruby impl?
 
 This, again, only for general purpose, but I want to compare the `c++` implementation
 of [leveldb-ruby](https://github.com/wmorgan/leveldb-ruby) with this that use ffi.
