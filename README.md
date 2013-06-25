@@ -154,11 +154,11 @@ Writing/Reading `100mb` of _very_ random data of `10kb` each:
     put  0.530000   0.310000   0.840000 (  1.420387)
     get  0.800000   0.460000   1.260000 (  2.626631)
 
-Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
---------------------------------------------------
-  0        1        0         0        0         0
-  2       50       98         0        0         0
-  3        1        2         0        0         0
+    Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+    --------------------------------------------------
+      0        1        0         0        0         0
+      2       50       98         0        0         0
+      3        1        2         0        0         0
 
 ### With compression:
 
@@ -166,11 +166,11 @@ Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
     put  0.850000   0.320000   1.170000 (  1.721609)
     get  1.160000   0.480000   1.640000 (  2.703543)
 
-Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
---------------------------------------------------
-  0        1        0         0        0         0
-  1        5       10         0        0         0
-  2       45       90         0        0         0
+    Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+    --------------------------------------------------
+      0        1        0         0        0         0
+      1        5       10         0        0         0
+      2       45       90         0        0         0
 
 **NOTE**: as you can see `snappy` can't compress that kind of _very very_
 random data, but I was not interested to bench snappy (as a compressor) but
@@ -182,9 +182,9 @@ only a _few_ and on normal _data_ the db size will be much much better!
           user     system      total        real
     put  0.260000   0.170000   0.430000 (  0.433407)
 
-Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
---------------------------------------------------
-  0        1      100         1        0       100
+    Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+    --------------------------------------------------
+      0        1      100         1        0       100
 
 
 ## What is the difference between a c++ pure ruby impl?
