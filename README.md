@@ -130,6 +130,74 @@ db.read_property('leveldb.stats')
 db.stats
 ```
 
+## Benchmarks
+
+_Preface_: those are only for general purpose, I know that [zenshaw](http://zedshaw.com/essays/programmer_stats.html)
+will kill me for this, but ... on my mac:
+
+    Model Identifier:	MacBookPro10,1
+    Processor Name:	Intel Core i7
+    Processor Speed:	2.3 GHz
+    Number of Processors:	1
+    Total Number of Cores:	4
+    L2 Cache (per Core):	256 KB
+    L3 Cache:	6 MB
+    Memory:	8 GB
+
+The benchmark code is in [benchmark/leveldb.rb](/tree/master/benchmark/leveldb.rb)
+
+Writing/Reading `100mb` of _very_ random data of `10kb` each:
+
+### Without compression:
+
+          user     system      total        real
+    put  0.530000   0.310000   0.840000 (  1.420387)
+    get  0.800000   0.460000   1.260000 (  2.626631)
+
+Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+--------------------------------------------------
+  0        1        0         0        0         0
+  2       50       98         0        0         0
+  3        1        2         0        0         0
+
+### With compression:
+
+          user     system      total        real
+    put  0.850000   0.320000   1.170000 (  1.721609)
+    get  1.160000   0.480000   1.640000 (  2.703543)
+
+Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+--------------------------------------------------
+  0        1        0         0        0         0
+  1        5       10         0        0         0
+  2       45       90         0        0         0
+
+**NOTE**: as you can see `snappy` can't compress that kind of _very very_
+random data, but I was not interested to bench snappy (as a compressor) but
+only to see how (eventually) much _slower_ will be using it. As you can see,
+only a _few_ and on normal _data_ the db size will be much much better!
+
+### With batch:
+
+          user     system      total        real
+    put  0.260000   0.170000   0.430000 (  0.433407)
+
+Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+--------------------------------------------------
+  0        1      100         1        0       100
+
+
+## What is the difference between a c++ pure ruby impl?
+
+This, again, only for general purpose, but I want to compare the `c++` implementation
+of [leveldb-ruby](https://github.com/wmorgan/leveldb-ruby) with this that use ffi.
+
+I'm aware that this lib is 1 year older, but for those who cares, the basic bench:
+
+          user     system      total        real
+    put  0.440000   0.300000   0.740000 (  1.363188)
+    get  0.440000   0.440000   1.460000 (  2.407274)
+
 ## Todo
 
 1. Add pluggable serializers
