@@ -1,9 +1,15 @@
 require_relative './helper'
 
 class TestBasic < Minitest::Test
+  attr_reader :db
 
-  def db
-    Thread.current[:__db__] ||= LevelDB::DB.new './tmp/test'
+  def setup
+    @db ||= LevelDB::DB.new './tmp/test-db'
+  end
+
+  def teardown
+    db.close
+    db.destroy
   end
 
   def test_open
@@ -38,6 +44,17 @@ class TestBasic < Minitest::Test
     assert db.member?(:foo)
     assert db.has_key?(:foo)
     refute db.exists?(:foxy)
+  end
+
+  def test_fetch
+    db[:foo] = :bar
+
+    assert_equal 'bar', db.fetch(:foo)
+    assert_raises LevelDB::DB::KeyError do
+      db.fetch(:sten)
+    end
+    assert_equal 'smith', db.fetch(:sten, :smith)
+    assert_equal 'francine', db.fetch(:francine){ |key| key }
   end
 
   def test_delete

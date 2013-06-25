@@ -8,6 +8,7 @@ module LevelDB
     include Enumerable
 
     class Error < StandardError; end
+    class KeyError < StandardError; end
     class ClosedError < StandardError; end
 
     attr_reader :path
@@ -85,7 +86,7 @@ module LevelDB
 
       raise Error, error_message if errors?
 
-      val.null? ? nil : val.to_s(@_read_len.value)
+      @_read_len.value == 0 ? nil : val.to_s(@_read_len.value)
     end
     alias get []
 
@@ -108,6 +109,16 @@ module LevelDB
     alias contains? exists?
     alias member?   exists?
     alias has_key?  exists?
+
+    def fetch(key, default=nil, &block)
+      val = get(key)
+
+      return val if val
+      raise KeyError if default.nil? && !block_given?
+
+      val = block_given? ? block[key] : default
+      put(key, val)
+    end
 
     def snapshot
       Snapshot.new(@_db, @_read_opts)
