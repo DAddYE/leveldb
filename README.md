@@ -59,6 +59,11 @@ db['hello'] = 'world'
 # Reading
 db.get('hello') # => world
 db['hello'] # => world
+db.exists?('hello') # => true
+
+# Reading/Writing
+db.fetch('hello', 'hello world') # => will write 'hello world' if there is no key 'hello'
+db.fetch('hello'){ |key| 'hello world' } # => same as above
 
 # Deleting
 db.delete('hello')
