@@ -132,7 +132,7 @@ db.stats
 
 ## Benchmarks
 
-_Preface_: those are only for general purpose, I know that [zenshaw](http://zedshaw.com/essays/programmer_stats.html)
+_Preface_: those are only for general purpose, I know that [zedshaw](http://zedshaw.com/essays/programmer_stats.html)
 will kill me for this, but ... on my mac:
 
     Model Identifier:	MacBookPro10,1
