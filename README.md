@@ -36,8 +36,9 @@ embedded database. LevelDB is a persistent ordered map.
     $ brew install snappy
     $ git clone git://github.com/DAddYE/leveldb.git
     $ cd leveldb
-    $ rake compile
-    $ rake console
+    $ bundle install
+    $ bundle exec rake compile
+    $ bundle exec rake console
 
 ### Standard
 
