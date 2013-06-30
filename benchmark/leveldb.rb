@@ -26,10 +26,38 @@ puts db.stats
 puts
 
 db.close; db.destroy
+db = LevelDB::DB.new '/tmp/bench', bloom_filter_bits_per_key: 100
+db.clear!
+
+puts '## With bloom filter @ 100 bits/key:'
+Benchmark.bm do |x|
+  x.report('put') { N.times { |i| db.put(i, SAMPLE[i]) } }
+  x.report('get') { N.times { |i| raise unless db.get(i) == SAMPLE[i] } }
+end
+
+db.reopen!
+puts db.stats
+puts
+
+db.close; db.destroy
 db = LevelDB::DB.new '/tmp/bench', compression: true
 db.clear!
 
 puts '## With compression:'
+Benchmark.bm do |x|
+  x.report('put') { N.times { |i| db.put(i, SAMPLE[i]) } }
+  x.report('get') { N.times { |i| raise unless db.get(i) == SAMPLE[i] } }
+end
+
+db.reopen!
+puts db.stats
+puts
+
+db.close; db.destroy
+db = LevelDB::DB.new '/tmp/bench', compression: true, bloom_filter_bits_per_key: 100
+db.clear!
+
+puts '## With compression and bloom filter @ 100 bits/key:'
 Benchmark.bm do |x|
   x.report('put') { N.times { |i| db.put(i, SAMPLE[i]) } }
   x.report('get') { N.times { |i| raise unless db.get(i) == SAMPLE[i] } }

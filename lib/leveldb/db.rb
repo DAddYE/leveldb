@@ -55,6 +55,10 @@ module LevelDB
       C.options_set_block_restart_interval(@_db_opts, @options[:block_restart_interval])
       C.options_set_compression(@_db_opts, @options[:compression] ? 1 : 0)
 
+      if @options[:bloom_filter_bits_per_key]
+        C.options_set_filter_policy(@_db_opts, C.filterpolicy_create_bloom(@options[:bloom_filter_bits_per_key]))
+      end
+
       @_db_opts.free = @_write_opts.free = @_read_opts.free = C[:options_destroy]
 
       @path = path
