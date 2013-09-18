@@ -20,7 +20,7 @@ module LevelDB
       paranoid_checks: false,
       write_buffer_size: 4 << 20,
       block_size: 4096,
-      max_open_files: 1000,
+      max_open_files: 200,
       block_cache_size: 8 * (2 << 20),
       block_restart_interval: 16,
       compression: false,
@@ -97,12 +97,13 @@ module LevelDB
     def [](key)
       raise ClosedError if closed?
 
-      key  = key.to_s
-      val  = C.get(@_db, @_read_opts, key, key.size, @_read_len, @_err)
+      key = key.to_s
+      val = C.get(@_db, @_read_opts, key, key.size, @_read_len, @_err)
+      val.free = C[:free]
 
       raise Error, error_message if errors?
 
-      @_read_len.value == 0 ? nil : val.to_s(@_read_len.value)
+      @_read_len.value == 0 ? nil : val.to_s(@_read_len.value).clone
     end
     alias get []
 
