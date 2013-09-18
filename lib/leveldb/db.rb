@@ -36,7 +36,6 @@ module LevelDB
       @_db_opts    = C.options_create
       @_write_opts = C.writeoptions_create
       @_read_opts  = C.readoptions_create
-      @_read_len   = C.value('size_t')
 
       @options = DEFAULT.merge(options)
 
@@ -63,8 +62,11 @@ module LevelDB
 
       @path = path
 
+      @_read_len = C::Pointer.malloc(C::SIZEOF_SIZE_T)
+      @_read_len.free = C[:free]
+
       @_err = C::Pointer.malloc(C::SIZEOF_VOIDP)
-      @_err.free = @_read_len.to_ptr.free = C[:free]
+      @_err.free = C[:free]
 
       @_db = C.open(@_db_opts, @path, @_err)
       @_db.free = C[:close]
@@ -103,7 +105,8 @@ module LevelDB
 
       raise Error, error_message if errors?
 
-      @_read_len.value == 0 ? nil : val.to_s(@_read_len.value).clone
+      len = @_read_len.to_s.unpack('C')[0]
+      len ? val.to_s(len).clone : nil
     end
     alias get []
 

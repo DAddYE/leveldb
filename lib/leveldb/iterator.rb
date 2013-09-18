@@ -81,8 +81,16 @@ module LevelDB
     def current
       return unless valid?
 
-      key = C.iter_key(@_iterator, @_read_len).to_s(@_read_len.value)
-      val = C.iter_value(@_iterator, @_read_len).to_s(@_read_len.value)
+
+      cval = C.iter_key(@_iterator, @_read_len)
+      len  = @_read_len.to_s.unpack('C')[0]
+
+      key = len ? cval.to_s(len) : nil
+
+      cval = C.iter_value(@_iterator, @_read_len)
+      len = @_read_len.to_s.unpack('C')[0]
+
+      val = len ? cval.to_s(len) : nil
 
       [key, val]
     end
