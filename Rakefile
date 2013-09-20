@@ -20,6 +20,8 @@ task :clean do
   sh 'cd ext/leveldb && make clean'
 end
 
+task :release => :clean
+
 desc "Rebuild leveldb"
 task :rebuild => [:clean, :compile]
 
