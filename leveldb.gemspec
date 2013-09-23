@@ -21,7 +21,8 @@ Gem::Specification.new do |spec|
     spec.files += Dir["ext/leveldb/**/*.{c,cc,h,mk,d}"] -
       Dir["ext/leveldb/doc/*"] +
       Dir["ext/leveldb/LICENSE"] +
-      Dir["ext/leveldb/Makefile"]
+      Dir["ext/leveldb/Makefile"] +
+      Dir["ext/leveldb/build_detect_platform"]
   end
 
   spec.files        += Dir['lib/**/*.rb']
