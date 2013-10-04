@@ -1,7 +1,7 @@
 require 'thread'
 require 'leveldb/iterator'
 require 'leveldb/batch'
-require 'Leveldb/snapshot'
+require 'leveldb/snapshot'
 
 module LevelDB
   class DB
