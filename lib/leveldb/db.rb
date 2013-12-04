@@ -86,7 +86,7 @@ module LevelDB
       key = key.to_s
       val = val.to_s
 
-      C.put(@_db, @_write_opts, key, key.size, val, val.size, @_err)
+      C.put(@_db, @_write_opts, key, key.bytesize, val, val.bytesize, @_err)
 
       raise Error, error_message if errors?
 
@@ -98,7 +98,7 @@ module LevelDB
       raise ClosedError if closed?
 
       key = key.to_s
-      val = C.get(@_db, @_read_opts, key, key.size, @_read_len, @_err)
+      val = C.get(@_db, @_read_opts, key, key.bytesize, @_read_len, @_err)
       val.free = C[:free]
 
       raise Error, error_message if errors?
@@ -112,7 +112,7 @@ module LevelDB
 
       key = key.to_s
       val = get(key)
-      C.delete(@_db, @_write_opts, key, key.size, @_err)
+      C.delete(@_db, @_write_opts, key, key.bytesize, @_err)
 
       raise Error, error_message if errors?
 
