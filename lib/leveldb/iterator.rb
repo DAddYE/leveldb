@@ -37,6 +37,8 @@ module LevelDB
     def range(from, to, &block)
       @_range = [from.to_s, to.to_s].sort
       @_range = @_range.reverse if reverse?
+      C.iter_seek(@_iterator, @_range.first, @_range.first.bytesize) if !reverse?
+
       each(&block)
     end
 
