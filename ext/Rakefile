@@ -7,5 +7,5 @@ task :default do
   end
 
   # Make sure leveldb is built...
-  sh "cd #{leveldb_dir} && make"
+  system "cd #{leveldb_dir} && make" || exit(1)
 end
